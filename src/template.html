@@ -7,12 +7,28 @@
   </head>
   <body>
     <header id="header">
-      <nav id="navbar">
-        <button class="navbar__home">Home</button>
-        <button class="navbar__menu">Menu</button>
-        <button class="navbar__about">About</button>
-        <button class="navbar__contact">Contact</button>
-      </nav>
+      <div class="header__left">
+        <div class="logo">
+          <a class="logo__link" href="#">
+            <img class="logo__img" src="" alt="" />
+          </a>
+        </div>
+        <nav class="header__left-navbar">
+          <button class="home">Home</button>
+          <button class="menu">Menu</button>
+          <button class="about">About</button>
+          <button class="contact">Contact</button>
+        </nav>
+      </div>
+      <div class="header__right">
+        <nav class="header__right-navbar">
+          <button class="book-table">Book a table</button>
+          <button class="phone">
+            <img class="phone__img" src="" alt="" />
+            <p class="phone__num">+10 (78) 783 3674</p>
+          </button>
+        </nav>
+      </div>
     </header>
     <div id="content"></div>
     <footer id="footer"></footer>
