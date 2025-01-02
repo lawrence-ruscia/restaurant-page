@@ -1,1 +1,2 @@
-console.log("Server up!");
+import "style.css";
+import "normalize.css";
