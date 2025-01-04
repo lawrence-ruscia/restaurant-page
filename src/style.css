@@ -171,15 +171,31 @@ button {
 
   display: grid;
   place-items: center;
-  grid-template-columns: repeat(4, auto);
+}
+
+.footer__row {
+  width: 70%;
+
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xxl);
 }
 
 .footer__col {
   border: 1px solid blue;
+  flex: 1;
+}
+
+.footer__section-title {
+  font-size: 1.3rem;
 }
 
 .footer__col--description {
-  max-width: 450px;
+  min-width: 400px;
+}
+
+.description__title {
+  font-size: 1.4rem;
 }
 
 .description__text {
@@ -190,4 +206,17 @@ button {
   display: flex;
   align-items: center;
   gap: var(--spacing-xs);
+}
+
+.quick-links__title {
+  margin-bottom: 2rem;
+}
+
+.quick-links__wrapper {
+  padding-left: 0;
+}
+
+.quick-links__item {
+  list-style: none;
+  margin-bottom: 15px;
 }
