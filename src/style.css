@@ -203,7 +203,7 @@ button {
 .description__logo {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
 }
 
 .description__socials {
@@ -221,7 +221,7 @@ button {
 .quick-links__title,
 .cakes__title,
 .contact-us__title {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .quick-links__wrapper,
@@ -234,7 +234,7 @@ button {
 .cakes__item,
 .contact-us__item {
   list-style: none;
-  margin-bottom: 16px;
+  margin-bottom: 22px;
 }
 /* Footer (Contact Us) */
 
