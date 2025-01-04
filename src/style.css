@@ -219,19 +219,33 @@ button {
   width: 24px;
 }
 
-/* Footer (Quick Links & Cakes) */
+/* Footer (Quick Links, Cakes, & Contact Us) */
 .quick-links__title,
-.cakes__title {
+.cakes__title,
+.contact-us__title {
   margin-bottom: 2rem;
 }
 
 .quick-links__wrapper,
-.cakes__wrapper {
+.cakes__wrapper,
+.contact-us__wrapper {
   padding-left: 0;
 }
 
 .quick-links__item,
-.cakes__item {
+.cakes__item,
+.contact-us__item {
   list-style: none;
   margin-bottom: 16px;
+}
+/* Footer (Contact Us) */
+
+.contact-us__item {
+  display: flex;
+  align-items: start;
+  gap: var(--spacing-sm);
+}
+
+.contact-us__item img {
+  width: 22px;
 }
