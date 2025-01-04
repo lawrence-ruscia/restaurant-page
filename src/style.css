@@ -189,7 +189,7 @@ button {
 .footer__section-title {
   font-size: 1.3rem;
 }
-
+/* Footer (Description) */
 .footer__col--description {
   min-width: 400px;
 }
@@ -207,16 +207,21 @@ button {
   align-items: center;
   gap: var(--spacing-xs);
 }
-
-.quick-links__title {
+/* Footer (Quick Links) */
+.quick-links__title,
+.cakes__title {
   margin-bottom: 2rem;
 }
 
-.quick-links__wrapper {
+.quick-links__wrapper,
+.cakes__wrapper {
   padding-left: 0;
 }
 
-.quick-links__item {
+.quick-links__item,
+.cakes__item {
   list-style: none;
-  margin-bottom: 15px;
+  margin-bottom: 16px;
 }
+
+/* Footer (Cakes) */
