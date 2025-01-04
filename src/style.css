@@ -207,7 +207,19 @@ button {
   align-items: center;
   gap: var(--spacing-xs);
 }
-/* Footer (Quick Links) */
+
+.description__socials {
+  margin-top: 2.5rem;
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.socials__icon {
+  max-width: 100%;
+  width: 24px;
+}
+
+/* Footer (Quick Links & Cakes) */
 .quick-links__title,
 .cakes__title {
   margin-bottom: 2rem;
@@ -223,5 +235,3 @@ button {
   list-style: none;
   margin-bottom: 16px;
 }
-
-/* Footer (Cakes) */
