@@ -1,6 +1,9 @@
 body {
   min-height: 100vh;
   font-size: 1.2rem;
+
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }
 
 a {
@@ -164,7 +167,10 @@ button {
 /* Footer */
 #footer {
   border: 2px solid red;
-  height: 40vh;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .instagram {
@@ -173,10 +179,9 @@ button {
     url(./assets/images/markl-holding-utensils.jpeg);
   background-position: left, center, right;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto;
 
   border: 1px solid blue;
-  height: 100%;
 
   display: grid;
   place-items: center;
@@ -195,4 +200,7 @@ button {
   padding: 14px 18px;
 
   border-radius: 24px;
+}
+
+.footer__body {
 }
