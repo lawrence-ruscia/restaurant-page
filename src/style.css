@@ -3,7 +3,7 @@ body {
   font-size: 1.2rem;
 
   display: grid;
-  grid-template-rows: 80px 1fr auto;
+  grid-template-rows: 80px 1fr 450px;
 }
 
 a {
@@ -168,4 +168,26 @@ button {
 /* Footer */
 #footer {
   border: 2px solid red;
+
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(4, auto);
+}
+
+.footer__col {
+  border: 1px solid blue;
+}
+
+.footer__col--description {
+  max-width: 450px;
+}
+
+.description__text {
+  font-weight: var(--font-weight-thin);
+}
+
+.description__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
 }
