@@ -3,7 +3,7 @@ body {
   font-size: 1.2rem;
 
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: 80px 1fr auto;
 }
 
 a {
@@ -107,8 +107,6 @@ button {
 }
 
 .header__left-navbar {
-  height: 100%;
-
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
@@ -129,6 +127,9 @@ button {
 /* Header (Right) */
 .header__right {
   padding-right: var(--spacing-xl);
+  display: grid;
+  place-items: center;
+  height: 100%;
 }
 
 .header__right-navbar {
@@ -167,35 +168,4 @@ button {
 /* Footer */
 #footer {
   border: 2px solid red;
-
-  height: 800px;
-
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-.instagram {
-  border: 1px solid blue;
-
-  display: grid;
-  place-items: center;
-}
-
-.instagram__link {
-  background-color: #ffffff;
-  color: var(--color-primary);
-  font-weight: var(--font-weight-bold);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-xs);
-
-  padding: 14px 18px;
-
-  border-radius: 24px;
-}
-
-.footer__body {
 }
