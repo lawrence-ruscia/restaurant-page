@@ -168,19 +168,14 @@ button {
 #footer {
   border: 2px solid red;
 
+  height: 800px;
+
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
 }
 
 .instagram {
-  background-image: url(./assets/images/howl-cooking.jpeg),
-    url(./assets/images/howl-holding-pan.jpeg),
-    url(./assets/images/markl-holding-utensils.jpeg);
-  background-position: left, center, right;
-  background-repeat: no-repeat;
-  background-size: auto;
-
   border: 1px solid blue;
 
   display: grid;
