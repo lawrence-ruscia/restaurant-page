@@ -163,4 +163,5 @@ button {
 
 /* Footer */
 #footer {
+  border: 2px solid red;
 }
