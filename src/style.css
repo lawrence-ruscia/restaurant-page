@@ -164,4 +164,35 @@ button {
 /* Footer */
 #footer {
   border: 2px solid red;
+  height: 40vh;
+}
+
+.instagram {
+  background-image: url(./assets/images/howl-cooking.jpeg),
+    url(./assets/images/howl-holding-pan.jpeg),
+    url(./assets/images/markl-holding-utensils.jpeg);
+  background-position: left, center, right;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  border: 1px solid blue;
+  height: 100%;
+
+  display: grid;
+  place-items: center;
+}
+
+.instagram__link {
+  background-color: #ffffff;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-xs);
+
+  padding: 14px 18px;
+
+  border-radius: 24px;
 }
