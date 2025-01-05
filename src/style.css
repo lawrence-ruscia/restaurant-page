@@ -9,6 +9,12 @@
     url("./assets/fonts/Inter-VariableFontopszwght.svg#Inter") format("svg");
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
 
