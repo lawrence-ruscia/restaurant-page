@@ -22,6 +22,7 @@ body {
   grid-template-rows: 80px 1fr 450px;
 
   font-family: "Inter", serif;
+  color: var(--color-text-secondary);
 }
 
 a {
@@ -219,7 +220,7 @@ button {
 }
 
 .description__text {
-  font-weight: var(--font-weight-thin);
+  font-weight: var(--font-weight-light);
 }
 
 .description__logo {
