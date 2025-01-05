@@ -57,6 +57,7 @@ button {
   --padding-btn-sm: 0.4rem 0.8rem;
   --padding-btn-md: 0.6rem 0.8rem;
   --padding-btn-lg: 0.8rem 1.5rem;
+  --padding-btn-xl: 1.4rem 1.8rem;
 
   /* Border-Radius */
   --radius-x-small: 4px;
@@ -185,6 +186,56 @@ button {
 
 .phone__img {
   width: 28px;
+}
+
+/* Content */
+/* Content (Hero) */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7rem;
+}
+
+.hero__text-block {
+  background-color: var(--color-secondarys);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+
+  width: 50%;
+  padding-left: 15rem;
+}
+
+.hero__text-block--CTA {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+
+  align-self: start;
+  padding: var(--padding-btn-xl);
+  margin-top: var(--spacing-sm);
+
+  border-radius: 35px;
+}
+
+.hero__text-block--headline {
+  font-size: 4rem;
+  margin: 0;
+}
+
+.hero__text-block--description {
+  font-size: var(--font-size-lg);
+}
+
+.hero__graphic {
+  align-self: end;
+  width: 50%;
+}
+
+.hero__graphic-img {
+  width: 100%;
 }
 
 /* Footer */
