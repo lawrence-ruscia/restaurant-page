@@ -134,11 +134,15 @@ button {
   font-weight: var(--font-weight-bold);
   color: var(--color-text-secondary);
   padding-bottom: 0.6rem;
+
+  border: none; /* Remove default borders */
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.3s ease;
 }
 
 .header__left-navbar-button:hover {
   color: var(--color-primary);
-  border-bottom: 3px solid var(--color-primary);
+  border-bottom-color: var(--color-primary);
 }
 
 /* Header (Right) */
