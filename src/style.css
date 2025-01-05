@@ -1,9 +1,21 @@
+@font-face {
+  font-family: "Inter";
+  src: url("./assets/fonts/Inter-VariableFontopszwght.eot");
+  src: url("./assets/fonts/Inter-VariableFontopszwght.eot?#iefix")
+      format("embedded-opentype"),
+    url("./assets/fonts/Inter-VariableFontopszwght.woff2") format("woff2"),
+    url("./assets/fonts/Inter-VariableFontopszwght.woff") format("woff"),
+    url("./assets/fonts/Inter-VariableFontopszwght.ttf") format("truetype"),
+    url("./assets/fonts/Inter-VariableFontopszwght.svg#Inter") format("svg");
+}
+
 body {
   min-height: 100vh;
-  font-size: 1.2rem;
 
   display: grid;
   grid-template-rows: 80px 1fr 450px;
+
+  font-family: "Inter", serif;
 }
 
 a {
