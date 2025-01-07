@@ -340,6 +340,149 @@ button {
   text-align: center;
   font-weight: var(--font-weight-light);
 }
+
+/* Most Popular Dishes */
+.most-popular {
+  background-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+
+  display: grid;
+  place-items: center;
+  grid-template-rows: auto 1fr;
+  gap: var(--spacing-xl);
+
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.most-popular__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 19rem 0 19rem;
+
+  width: 100%;
+}
+
+.most-popular__menu-btn {
+  align-self: start;
+
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+
+  border-radius: 40px;
+  padding: 25px 60px;
+}
+
+.most-popular__caption {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 40%;
+}
+
+.most-popular__headline {
+  font-size: 2.5rem;
+
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+.most-popular__description {
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-lg);
+}
+
+.most-popular__card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+
+  width: 100%;
+}
+
+.most-popular__card-item {
+  position: relative;
+  background-color: var(--color-text-primary);
+  color: #0c0c0c;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  max-width: 420px;
+  min-height: 200px;
+
+  border-radius: var(--radius-small);
+  transition: all 0.3s ease-out;
+}
+
+.most-popular__card-item:hover .card-item__img {
+  transform: scale(0.95);
+}
+
+.most-popular__card-item:hover .card-item__title {
+  color: var(--color-primary);
+}
+
+.card-item__graphic {
+  width: 50%;
+  padding-top: 40px;
+}
+
+.card-item__img {
+  max-width: 100%;
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+
+  transition: transform 0.3s ease-out;
+}
+
+.card-item__details {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  padding: 40px 60px;
+}
+
+.card-item__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+
+  margin-top: 0;
+  margin-bottom: 0;
+
+  transition: all 0.3s ease-out;
+}
+
+.card-item__price-tag {
+  position: absolute;
+  top: 150px;
+  right: 80px;
+
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+
+  display: grid;
+  place-items: center;
+
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-round);
+
+  font-weight: var(--font-weight-bold);
+}
+
 /* Footer */
 #footer {
   background-color: var(--color-secondary);
@@ -389,7 +532,6 @@ button {
 }
 
 .socials__icon {
-  max-width: 100%;
   width: 24px;
 }
 
