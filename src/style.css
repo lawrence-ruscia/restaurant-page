@@ -84,6 +84,12 @@ button {
   --font-weight-black: 900;
 }
 
+/* Content */
+#content {
+  display: grid;
+  grid-template-rows: 100vh 1fr;
+}
+
 /* Header */
 #header {
   background-color: var(--color-secondary);
@@ -236,7 +242,7 @@ button {
 }
 
 .hero__graphic-img {
-  width: 100%;
+  max-width: 80%;
 }
 
 /* Our Services */
