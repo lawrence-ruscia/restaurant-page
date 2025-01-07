@@ -320,6 +320,11 @@ button {
   box-shadow: 0 25px 38px rgba(254, 95, 65, 0.1);
 }
 
+.our-services__card-item:hover .our-services__card-item-title {
+  transition: all 0.4s ease-out 0s;
+  color: var(--color-primary);
+}
+
 .our-services__card-item-caption {
   padding: var(--spacing-sm);
 }
