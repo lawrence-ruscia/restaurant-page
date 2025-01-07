@@ -420,11 +420,15 @@ button {
   transition: all 0.3s ease-out;
 }
 
+.most-popular__card-item:hover {
+  cursor: pointer;
+}
+
 .most-popular__card-item:hover .card-item__img {
   transform: scale(0.95);
 }
 
-.most-popular__card-item:hover .card-item__title {
+.most-popular__card-item:hover .card-item__order-now-btn {
   color: var(--color-primary);
 }
 
@@ -459,8 +463,6 @@ button {
 
   margin-top: 0;
   margin-bottom: 0;
-
-  transition: all 0.3s ease-out;
 }
 
 .card-item__price-tag {
@@ -479,6 +481,19 @@ button {
   border-radius: var(--radius-round);
 
   font-weight: var(--font-weight-bold);
+}
+
+.card-item__order-now-btn {
+  background-color: var(--color-text-primary);
+  color: #0c0c0c;
+
+  border-bottom: 3px solid var(--color-primary);
+
+  margin-top: var(--spacing-sm);
+  padding-top: 0.7rem;
+  padding-bottom: 0.7rem;
+
+  transition: all 0.3s ease-out;
 }
 
 /* Footer */
