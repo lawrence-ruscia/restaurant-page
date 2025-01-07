@@ -199,9 +199,11 @@ button {
   background-color: var(--color-secondary);
 
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 7rem;
+
+  overflow: hidden;
 }
 
 .hero__text-block {
@@ -237,12 +239,11 @@ button {
 }
 
 .hero__graphic {
-  align-self: end;
   width: 50%;
 }
 
 .hero__graphic-img {
-  max-width: 80%;
+  width: 100%;
 }
 
 /* Our Services */
