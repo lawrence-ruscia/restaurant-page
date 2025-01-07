@@ -296,8 +296,6 @@ button {
 }
 
 .our-services__card-item {
-  border: 1px solid red;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -312,7 +310,7 @@ button {
   border: 1px solid #e6dad8;
   border-radius: var(--radius-small);
 
-  transition: all 0.4s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
 }
 
 .our-services__card-item:hover {
@@ -321,7 +319,7 @@ button {
 }
 
 .our-services__card-item:hover .our-services__card-item-title {
-  transition: all 0.4s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
   color: var(--color-primary);
 }
 
