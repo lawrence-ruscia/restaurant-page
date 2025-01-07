@@ -292,8 +292,7 @@ button {
   align-items: center;
   gap: var(--spacing-md);
   flex-wrap: wrap;
-
-  width: minmax(65%, 75%);
+  width: 100%;
 }
 
 .our-services__card-item {
