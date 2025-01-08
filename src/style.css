@@ -561,6 +561,7 @@ button {
 .booking-area__form-button {
   border-radius: 30px;
 
+  margin-top: var(--spacing-sm);
   padding: 16px 40px;
   width: 100%;
 }
