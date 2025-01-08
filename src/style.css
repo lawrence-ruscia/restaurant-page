@@ -506,25 +506,24 @@ button {
 }
 
 .booking-area__container {
-  border: 1px solid red;
-
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 5rem;
 
   height: 100%;
   width: 100%;
 }
 
 .booking-area__graphic {
-  border: 2px solid blue;
   max-width: 100%;
 }
 
 .booking-area__img {
   aspect-ratio: 1 / 1;
   object-fit: cover;
+
+  border-radius: var(--radius-large);
   width: 100%;
 }
 
@@ -540,16 +539,16 @@ button {
 .booking-area__form {
   align-self: start;
 
-  border: 2px solid blue;
   width: 25%;
 }
 
 .reservation-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--spacing-md);
 
-  margin-top: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
 }
 
 .form-group {
@@ -565,6 +564,8 @@ button {
 }
 
 .form-group-date-time {
+  width: 100%;
+
   display: flex;
   justify-content: space-between;
   gap: var(--spacing-md);
@@ -573,10 +574,22 @@ button {
 .form-group > input {
   padding: var(--spacing-sm);
   border-radius: var(--radius-small);
+
+  outline: none;
+  border: 1px solid #e6dad8;
 }
 
 input[type="date"],
 input[type="time"] {
+  width: 100%;
+}
+
+.reservation-form__button {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  border-radius: 30px;
+
+  padding: 16px 40px;
   width: 100%;
 }
 
