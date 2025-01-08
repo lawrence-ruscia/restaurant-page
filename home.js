@@ -1,3 +1,4 @@
+// Mimic Abstract Class
 class DOMHandler {
   constructor() {
     if (new.target === DOMHandler) {
@@ -5,6 +6,7 @@ class DOMHandler {
     }
   }
 
+  // Abstract Method
   render() {
     throw new Error("Abstract method must be implemented by subclass.");
   }
