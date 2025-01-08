@@ -103,6 +103,7 @@ button {
   padding-right: var(--spacing-xl);
 }
 
+/* Overall Style */
 .call-to-action {
   background-color: var(--color-primary);
   color: var(--color-text-primary);
@@ -110,6 +111,18 @@ button {
 
 .call-to-action:hover {
   background-color: var(--color-primary-hover);
+}
+
+.section-headline {
+  font-size: 2.5rem;
+
+  margin-top: 0;
+  margin-bottom: var(--spacing-xs);
+}
+
+.section-description {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-light);
 }
 
 /* Header (Left) */
@@ -275,18 +288,8 @@ button {
   margin-bottom: var(--spacing-xl);
 }
 
-.our-services__headline {
-  min-width: 100%;
-  font-size: 2.5rem;
-  margin-bottom: var(--spacing-xs);
-}
-
 .our-services__description {
   max-width: 60%;
-
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-light);
-  text-align: center;
 }
 
 .our-services__card-container {
@@ -335,13 +338,6 @@ button {
   font-weight: var(--font-weight-bold);
 }
 
-.our-services__card-item-description {
-  margin-top: var(--spacing-md);
-
-  text-align: center;
-  font-weight: var(--font-weight-light);
-}
-
 /* Most Popular Dishes */
 .most-popular {
   background-color: var(--color-text-secondary);
@@ -379,18 +375,6 @@ button {
   justify-content: center;
 
   width: 40%;
-}
-
-.most-popular__headline {
-  font-size: 2.5rem;
-
-  margin-top: 0;
-  margin-bottom: var(--spacing-xs);
-}
-
-.most-popular__description {
-  font-weight: var(--font-weight-light);
-  font-size: var(--font-size-lg);
 }
 
 .most-popular__card-container {
@@ -525,15 +509,6 @@ button {
 
   border-radius: var(--radius-large);
   width: 100%;
-}
-
-.booking-area__headline {
-  font-size: 2.5rem;
-}
-
-.booking-area__description {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-light);
 }
 
 .booking-area__content {
