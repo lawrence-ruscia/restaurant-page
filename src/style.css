@@ -39,6 +39,7 @@ button {
 :root {
   /* Colors */
   --color-primary: #fe5f41;
+  --color-primary-hover: #ec583a;
   --color-secondary: #fff4f2;
 
   --color-text-primary: #ffffff;
@@ -100,6 +101,11 @@ button {
 
   padding-left: var(--spacing-xl);
   padding-right: var(--spacing-xl);
+}
+
+.call-to-action {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
 }
 
 /* Header (Left) */
@@ -178,16 +184,12 @@ button {
 }
 
 .phone {
-  background-color: var(--color-primary);
-
   display: flex;
   align-items: center;
 
   padding: 0px 30px;
 
   border-radius: 35px;
-
-  color: var(--color-text-primary);
 }
 
 .phone__img {
@@ -218,10 +220,7 @@ button {
   padding-left: 15rem;
 }
 
-.hero__text-block--CTA {
-  background-color: var(--color-primary);
-  color: var(--color-text-primary);
-
+.text-block__btn {
   align-self: start;
   padding: var(--padding-btn-xl);
   margin-top: var(--spacing-sm);
@@ -365,9 +364,6 @@ button {
 
 .most-popular__menu-btn {
   align-self: start;
-
-  background-color: var(--color-primary);
-  color: var(--color-text-primary);
 
   border-radius: 40px;
   padding: 25px 60px;
@@ -584,8 +580,6 @@ button {
 }
 
 .booking-area__form-button {
-  background-color: var(--color-primary);
-  color: var(--color-text-primary);
   border-radius: 30px;
 
   padding: 16px 40px;
