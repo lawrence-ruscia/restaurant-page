@@ -221,18 +221,19 @@
             />
           </div>
 
-          <div class="booking-area__form">
-            <div class="booking-area__form-header">
-              <h1 class="form-header__headline">Book a Table</h1>
-              <p class="form-header__description">
+          <div class="booking-area__content">
+            <div class="booking-area__header">
+              <h1 class="booking-area__headline">Book a Table</h1>
+              <p class="booking-area__description">
                 Reserve your seat at Howl’s Moving Kitchen in just a few clicks.
                 Experience magical dining, crafted just for you.
               </p>
             </div>
-            <form class="reservation-form">
-              <div class="form-group">
-                <label for="name">Full Name</label>
+            <form class="booking-area__form">
+              <div class="booking-area__form-group">
+                <label for="name" class="booking-area__label">Full Name</label>
                 <input
+                  class="booking-area__input"
                   type="text"
                   id="name"
                   name="name"
@@ -240,19 +241,38 @@
                   required
                 />
               </div>
-              <div class="form-group-date-time">
-                <div class="form-group">
-                  <label for="date">Reservation Date</label>
-                  <input type="date" id="date" name="date" required />
+              <div class="booking-area__date-time">
+                <div class="booking-area__form-group">
+                  <label for="date" class="booking-area__label"
+                    >Reservation Date</label
+                  >
+                  <input
+                    class="booking-area__input booking-area__input--datetime"
+                    type="date"
+                    id="date"
+                    name="date"
+                    required
+                  />
                 </div>
-                <div class="form-group">
-                  <label for="time">Reservation Time</label>
-                  <input type="time" id="time" name="time" required />
+                <div class="booking-area__form-group">
+                  <label for="time" class="booking-area__label"
+                    >Reservation Time</label
+                  >
+                  <input
+                    class="booking-area__input booking-area__input--datetime"
+                    type="time"
+                    id="time"
+                    name="time"
+                    required
+                  />
                 </div>
               </div>
-              <div class="form-group">
-                <label for="guests">Number of Guests</label>
+              <div class="booking-area__form-group">
+                <label for="guests" class="booking-area__label"
+                  >Number of Guests</label
+                >
                 <input
+                  class="booking-area__input"
                   type="number"
                   id="guests"
                   name="guests"
@@ -262,7 +282,7 @@
                   required
                 />
               </div>
-              <button type="submit" class="reservation-form__button">
+              <button type="submit" class="booking-area__form-button">
                 Book Now
               </button>
             </form>

@@ -527,22 +527,22 @@ button {
   width: 100%;
 }
 
-.form-header__headline {
+.booking-area__headline {
   font-size: 2.5rem;
 }
 
-.form-header__description {
+.booking-area__description {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-light);
 }
 
-.booking-area__form {
+.booking-area__content {
   align-self: start;
 
   width: 25%;
 }
 
-.reservation-form {
+.booking-area__form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -551,7 +551,7 @@ button {
   margin-top: var(--spacing-xl);
 }
 
-.form-group {
+.booking-area__form-group {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
@@ -559,11 +559,11 @@ button {
   width: 100%;
 }
 
-.form-group > label {
+.booking-area__label {
   font-size: 1.1rem;
 }
 
-.form-group-date-time {
+.booking-area__date-time {
   width: 100%;
 
   display: flex;
@@ -571,7 +571,7 @@ button {
   gap: var(--spacing-md);
 }
 
-.form-group > input {
+.booking-area__input {
   padding: var(--spacing-sm);
   border-radius: var(--radius-small);
 
@@ -579,12 +579,11 @@ button {
   border: 1px solid #e6dad8;
 }
 
-input[type="date"],
-input[type="time"] {
+.booking-area__input--datetime {
   width: 100%;
 }
 
-.reservation-form__button {
+.booking-area__form-button {
   background-color: var(--color-primary);
   color: var(--color-text-primary);
   border-radius: 30px;
