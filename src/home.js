@@ -22,7 +22,7 @@ class DOMHandler {
     return div;
   }
 
-  createHeading(headingType, textContent, ...classNames) {
+  createHeading(headingType, textContent = "", ...classNames) {
     this.#validateClassNames(classNames);
 
     const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -37,7 +37,7 @@ class DOMHandler {
     return heading;
   }
 
-  createPara(textContent, ...classNames) {
+  createPara(textContent = "", ...classNames) {
     const para = document.createElement("p");
     para.textContent = textContent;
     this.#addClassNames(para, classNames);
@@ -45,7 +45,7 @@ class DOMHandler {
     return para;
   }
 
-  createButton(textContent, ...classNames) {
+  createButton(textContent = "", ...classNames) {
     const button = document.createElement("button");
     this.#addClassNames(button, classNames);
     button.textContent = textContent;
