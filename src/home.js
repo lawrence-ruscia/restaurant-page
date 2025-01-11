@@ -169,28 +169,25 @@ export class ServicesHandler extends DOMHandler {
     cards: [
       this.#createCard(
         cardImg1,
-        null,
         "Wholesome Feasts",
         "Indulge in hearty, wholesome meals made with the freshest ingredients and a dash of magic."
       ),
       this.#createCard(
         cardImg2,
-        null,
         "Quick Bites with Charm",
         " Savor quick, flavorful dishes perfect for those on the move, inspired by Calcifer’s fiery touch."
       ),
       this.#createCard(
         cardImg3,
-        null,
         "Enchanting Brews",
         "Sip on handcrafted teas and coffees, brewed to warm your soul and awaken your senses."
       ),
     ],
   };
 
-  #createCard(ImgSrc, ImgAlt = "", headlineText, descriptionText) {
+  #createCard(ImgSrc, headlineText, descriptionText) {
     const card = this.createDiv("our-services__card-item");
-    const img = this.createImg(ImgSrc, ImgAlt, "our-services__card-item-img");
+    const img = this.createImg(ImgSrc, "our-services__card-item-img");
     const caption = this.createDiv("our-services__card-item-caption");
     const title = this.createAnchor(
       "#",
