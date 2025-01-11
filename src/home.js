@@ -214,16 +214,24 @@ export class ServicesHandler extends DOMHandler {
     return card;
   }
 
-  render() {
-    const { services, container, cardContainer } = this.#DOMElements;
-    services.append(container, cardContainer);
-
-    const { header, headline, description } = this.#DOMElements;
-    header.append(headline, description);
+  #renderHeader(container, header) {
+    const { headline, description } = this.#DOMElements;
     container.append(header);
+    header.append(headline, description);
+  }
 
+  #renderCardContainer(cardContainer) {
     const { cards } = this.#DOMElements;
     cardContainer.append(...cards);
+  }
+
+  render() {
+    const { services, header, container, cardContainer } = this.#DOMElements;
+
+    this.#renderHeader(container, header);
+    this.#renderCardContainer(cardContainer);
+
+    services.append(container, cardContainer);
 
     return services;
   }
