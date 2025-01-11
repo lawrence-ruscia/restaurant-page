@@ -2,6 +2,9 @@ import heroGraphic from "./assets/images/hero-preview.jpeg";
 import cardImg1 from "./assets/images/services1.svg";
 import cardImg2 from "./assets/images/services2.svg";
 import cardImg3 from "./assets/images/services3.svg";
+import popularCardImg1 from "./assets/images/steak.jpeg";
+import popularCardImg2 from "./assets/images/ramen.jpeg";
+import popularCardImg3 from "./assets/images/parfait.jpeg";
 
 // Mimic Abstract Class
 class DOMHandler {
@@ -220,7 +223,89 @@ export class ServicesHandler extends DOMHandler {
   }
 }
 
-class PopularHandler extends DOMHandler {}
+export class PopularHandler extends DOMHandler {
+  #DOMElements = {
+    popular: this.createDiv("most-popular"),
+    header: this.createDiv("most-popular__header"),
+    caption: this.createDiv("most-popular__caption"),
+    headline: this.createHeading(
+      "h1",
+      "Most Popular Dishes",
+      "most-popular__headline",
+      "section-headline"
+    ),
+    description: this.createPara(
+      "Discover the dishes our guests can’t stop raving about—crafted with love and a sprinkle of magic.",
+      "most-popular__description",
+      "section-description"
+    ),
+    menuBtn: this.createButton(
+      "Full Menu",
+      "most-popular__menu-btn",
+      "call-to-action"
+    ),
+    cardContainer: this.createDiv("most-popular__card-container"),
+
+    cards: [
+      this.#createCard(
+        popularCardImg1,
+        "A beautifully plated grilled steak with herb butter, served with roasted vegetables.",
+        "3,500",
+        "Calcifer’s Flame-Grilled Steak",
+        "Perfectly seared steak infused with smoky, magical flavors straight from Calcifer’s fire."
+      ),
+      this.#createCard(
+        popularCardImg2,
+        "A bowl of vibrant, aromatic ramen topped with soft-boiled eggs, fresh herbs, and a hint of spice.",
+        "2,400",
+        "Howl’s Enchanted Ramen",
+        "A rich, flavorful bowl of ramen that warms the soul and ignites your senses."
+      ),
+      this.#createCard(
+        popularCardImg3,
+        "A layered parfait with rich chocolate, coffee cream, and a sprinkle of cocoa powder, served in a tall glass.",
+        "1,500",
+        "Sophie’s Dreamy Parfait",
+        "A dreamy dessert blending smooth mocha flavors with indulgent chocolate layers."
+      ),
+    ],
+  };
+
+  #createCard(ImgSrc, ImgAlt, price, titleText, descriptionText) {
+    const card = this.createDiv("most-popular__card-item");
+    const graphic = this.createDiv("card-item__graphic");
+    const img = this.createImg(ImgSrc, ImgAlt, "card-item__img");
+    const priceTag = this.createDiv("card-item__price-tag");
+    priceTag.textContent = `&#165;${price}`;
+    const details = this.createDiv("card-item__details");
+    const title = this.createAnchor("#", titleText, "card-item__title");
+    const description = this.createPara(
+      descriptionText,
+      "card-item__description"
+    );
+    const button = this.createButton("Order Now", "card-item__order-now-btn");
+
+    card.append(graphic, priceTag, details);
+    graphic.append(img);
+    details.append(title, description, button);
+
+    return card;
+  }
+
+  render() {
+    const { popular, header, cardContainer } = this.#DOMElements;
+    popular.append(header, cardContainer);
+
+    const { caption, headline, description, menuBtn } = this.#DOMElements;
+    caption.append(headline, description);
+    header.append(caption, menuBtn);
+
+    const { cards } = this.#DOMElements;
+    cardContainer.append(...cards);
+
+    return popular;
+  }
+}
 
 class BookingHandler extends DOMHandler {}
 
