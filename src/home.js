@@ -14,9 +14,7 @@ class DOMHandler {
   }
 
   createDiv(...classNames) {
-    if (classNames === null || classNames === undefined) {
-      throw new Error(`Invalid class names: ${classNames}`);
-    }
+    this.#validateClassNames(classNames);
 
     const div = document.createElement("div");
     this.#addClassNames(div, classNames);
@@ -25,6 +23,8 @@ class DOMHandler {
   }
 
   createHeading(headingType, textContent, ...classNames) {
+    this.#validateClassNames(classNames);
+
     const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
     if (!validHeadings.includes(headingType)) {
       throw new Error(`Invalid heading type: ${headingType}`);
@@ -54,6 +54,11 @@ class DOMHandler {
   }
 
   createImg(src, alt = "", ...classNames) {
+    if (src)
+      if (classNames === null || classNames === undefined) {
+        throw new Error(`Invalid class names: ${classNames}`);
+      }
+
     const img = document.createElement("img");
     img.src = src;
     img.alt = alt;
@@ -64,6 +69,17 @@ class DOMHandler {
 
   #addClassNames(element, classNames) {
     classNames.forEach((className) => element.classList.add(className));
+  }
+
+  #validateClassNames(classNames) {
+    if (
+      Array.isArray(classNames) ||
+      classNames.some((cls) => typeof cls !== string || cls.trim() === "")
+    ) {
+      throw new Error(
+        `Invalid class names: ${classNames}. Ensure class names are non-empty strings.`
+      );
+    }
   }
 }
 
