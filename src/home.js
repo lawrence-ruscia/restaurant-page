@@ -134,18 +134,24 @@ export class HeroHandler extends DOMHandler {
     ),
   };
 
+  #renderTextBlock(textBlock) {
+    const { headline, description, textBlockBtn } = this.#DOMElements;
+    textBlock.append(headline, description, textBlockBtn);
+  }
+
+  #renderGraphic(graphic) {
+    const { graphicImg } = this.#DOMElements;
+    graphic.append(graphicImg);
+  }
+
   render() {
     // Append to Hero
     const { hero, textBlock, graphic } = this.#DOMElements;
+
+    this.#renderTextBlock(textBlock);
+    this.#renderGraphic(graphic);
+
     hero.append(textBlock, graphic);
-
-    // Append to TextBlock
-    const { headline, description, textBlockBtn } = this.#DOMElements;
-    textBlock.append(headline, description, textBlockBtn);
-
-    // Append to Graphic
-    const { graphicImg } = this.#DOMElements;
-    graphic.append(graphicImg);
 
     return hero;
   }
