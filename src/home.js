@@ -38,6 +38,8 @@ class DOMHandler {
   }
 
   createPara(textContent = "", ...classNames) {
+    this.#validateClassNames(classNames);
+
     const para = document.createElement("p");
     para.textContent = textContent;
     this.#addClassNames(para, classNames);
@@ -46,6 +48,8 @@ class DOMHandler {
   }
 
   createButton(textContent = "", ...classNames) {
+    this.#validateClassNames(classNames);
+
     const button = document.createElement("button");
     this.#addClassNames(button, classNames);
     button.textContent = textContent;
@@ -54,10 +58,11 @@ class DOMHandler {
   }
 
   createImg(src, alt = "", ...classNames) {
-    if (src)
-      if (classNames === null || classNames === undefined) {
-        throw new Error(`Invalid class names: ${classNames}`);
-      }
+    this.#validateClassNames(classNames);
+
+    if (classNames === null || classNames === undefined) {
+      throw new Error(`Invalid class names: ${classNames}`);
+    }
 
     const img = document.createElement("img");
     img.src = src;
