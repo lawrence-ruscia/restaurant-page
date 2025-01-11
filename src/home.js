@@ -306,16 +306,23 @@ export class PopularHandler extends DOMHandler {
     return card;
   }
 
+  #renderHeader(header) {
+    const { caption, headline, description, menuBtn } = this.#DOMElements;
+    caption.append(headline, description);
+    header.append(caption, menuBtn);
+  }
+
+  #renderCardContainer(cardContainer) {
+    const { cards } = this.#DOMElements;
+    cardContainer.append(...cards);
+  }
+
   render() {
     const { popular, header, cardContainer } = this.#DOMElements;
     popular.append(header, cardContainer);
 
-    const { caption, headline, description, menuBtn } = this.#DOMElements;
-    caption.append(headline, description);
-    header.append(caption, menuBtn);
-
-    const { cards } = this.#DOMElements;
-    cardContainer.append(...cards);
+    this.#renderHeader(header);
+    this.#renderCardContainer(cardContainer);
 
     return popular;
   }
