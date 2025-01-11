@@ -59,10 +59,7 @@ class DOMHandler {
 
   createImg(src, alt = "", ...classNames) {
     this.#validateClassNames(classNames);
-
-    if (classNames === null || classNames === undefined) {
-      throw new Error(`Invalid class names: ${classNames}`);
-    }
+    this.#validateSrcPath;
 
     const img = document.createElement("img");
     img.src = src;
@@ -84,6 +81,12 @@ class DOMHandler {
       throw new Error(
         `Invalid class names: ${classNames}. Ensure class names are non-empty strings.`
       );
+    }
+  }
+
+  #validateSrcPath(src) {
+    if (src === null || src === undefined) {
+      throw new Error(`Invalid src path: ${src}.`);
     }
   }
 }
