@@ -3,6 +3,7 @@ import "./normalize.css";
 
 import { HeroHandler } from "./home.js";
 
+// TEMP: This is only to test the rendering of the homepage
 const content = document.querySelector("#content");
 const hero = new HeroHandler();
 content.appendChild(hero.render());

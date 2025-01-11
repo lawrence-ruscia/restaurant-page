@@ -20,30 +20,16 @@ class DOMHandler {
     return div;
   }
 
-  createHeading(headerType, textContent, ...classNames) {
-    let heading = null;
-    switch (headerType) {
-      case "h1":
-        heading = document.createElement("h1");
-        break;
-      case "h2":
-        heading = document.createElement("h2");
-        break;
-      case "h3":
-        heading = document.createElement("h3");
-        break;
-      case "h4":
-        heading = document.createElement("h4");
-        break;
-      case "h5":
-        heading = document.createElement("h5");
-        break;
-      case "h6":
-        heading = document.createElement("h6");
-        break;
+  createHeading(headingType, textContent, ...classNames) {
+    const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
+    if (!validHeadings.includes(headingType)) {
+      throw new Error(`Invalid heading type: ${headingType}`);
     }
+
+    const heading = document.createElement(headingType);
     heading.textContent = textContent;
     this.#addClassNames(heading, classNames);
+
     return heading;
   }
 
