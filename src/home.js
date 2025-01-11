@@ -73,7 +73,7 @@ class DOMHandler {
 
   #validateClassNames(classNames) {
     if (
-      Array.isArray(classNames) ||
+      !Array.isArray(classNames) ||
       classNames.some((cls) => typeof cls !== string || cls.trim() === "")
     ) {
       throw new Error(
