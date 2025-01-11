@@ -14,6 +14,10 @@ class DOMHandler {
   }
 
   createDiv(...classNames) {
+    if (classNames === null || classNames === undefined) {
+      throw new Error(`Invalid class names: ${classNames}`);
+    }
+
     const div = document.createElement("div");
     this.#addClassNames(div, classNames);
 
