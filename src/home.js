@@ -20,17 +20,23 @@ class DOMHandler {
     throw new Error("Abstract method must be implemented by subclass.");
   }
 
-  createDiv(...classNames) {
+  createDiv({ textContent = "", id = "", classNames = [] } = {}) {
     this.#validateClassNames(classNames);
 
     const div = document.createElement("div");
+    div.textContent = textContent;
+    div.id = id;
     this.#addClassNames(div, classNames);
 
     return div;
   }
-  // TODO: Modify all default params, Use (Objects parameter) instead
 
-  createHeading(headingType, textContent = "", ...classNames) {
+  createHeading({
+    headingType,
+    textContent = "",
+    id = "",
+    classNames = [],
+  } = {}) {
     this.#validateClassNames(classNames);
 
     const validHeadings = ["h1", "h2", "h3", "h4", "h5", "h6"];
@@ -40,55 +46,65 @@ class DOMHandler {
 
     const heading = document.createElement(headingType);
     heading.textContent = textContent;
+    heading.id = id;
     this.#addClassNames(heading, classNames);
 
     return heading;
   }
 
-  createPara(textContent = "", ...classNames) {
+  createPara({ textContent = "", id = "", classNames = [] } = {}) {
     this.#validateClassNames(classNames);
 
     const para = document.createElement("p");
     para.textContent = textContent;
+    para.id = id;
     this.#addClassNames(para, classNames);
 
     return para;
   }
 
-  createButton(textContent = "", ...classNames) {
+  createButton({ textContent = "", id = "", classNames = [] } = {}) {
     this.#validateClassNames(classNames);
 
     const button = document.createElement("button");
-    this.#addClassNames(button, classNames);
+    button.id = id;
     button.textContent = textContent;
+    this.#addClassNames(button, classNames);
 
     return button;
   }
 
-  createImg(src, alt = "", ...classNames) {
+  createImg({ src, alt = "", id = "", classNames = [] } = {}) {
     this.#validateClassNames(classNames);
     this.#validateSrcPath(src);
 
     const img = document.createElement("img");
     img.src = src;
     img.alt = alt;
+    img.id = id;
     this.#addClassNames(img, classNames);
 
     return img;
   }
 
-  createAnchor(href = "#", textContent = "", ...classNames) {
+  createAnchor({
+    href = "#",
+    textContent = "",
+    id = "",
+    classNames = [],
+  } = {}) {
     this.#validateClassNames(classNames);
 
     const a = document.createElement("a");
-    this.#addClassNames(a, classNames);
     a.href = href;
     a.textContent = textContent;
+    a.id = id;
+    this.#addClassNames(a, classNames);
 
     return a;
   }
 
-  createForm(action = "", method = "", id = "", ...classNames) {
+  createForm({ action = "", method = "", id = "", classNames = [] } = {}) {
     this.#validateClassNames(classNames);
 
     const form = document.createElement("form");
@@ -104,7 +120,7 @@ class DOMHandler {
     this.#validateClassNames(classNames);
 
     const label = document.createElement("label");
-    label.for = forElem;
+    label.htmlFor = forElem;
     label.id = id;
     label.textContent = textContent;
     this.#addClassNames(label, classNames);
@@ -160,28 +176,28 @@ class DOMHandler {
 
 export class HeroHandler extends DOMHandler {
   #DOMElements = {
-    hero: this.createDiv("hero"),
-    textBlock: this.createDiv("hero__text-block"),
-    headline: this.createHeading(
-      "h1",
-      "Enchanting Flavors, Inspired by Magic",
-      "hero__text-block--headline"
-    ),
-    description: this.createPara(
-      "Step into Howl's Moving Kitchen and savor dishes crafted with heart and a touch of enchanment",
-      "hero__text-block--description"
-    ),
-    textBlockBtn: this.createButton(
-      "Explore the Menu",
-      "text-block__btn",
-      "call-to-action"
-    ),
-    graphic: this.createDiv("hero__graphic"),
-    graphicImg: this.createImg(
-      heroGraphic,
-      "An image of califer cooking breakfast while eating egg shells",
-      "hero__graphic-img"
-    ),
+    hero: this.createDiv({ classNames: ["hero"] }),
+    textBlock: this.createDiv({ classNames: ["hero__text-block"] }),
+    headline: this.createHeading({
+      headingType: "h1",
+      textContent: "Enchanting Flavors, Inspired by Magic",
+      classNames: ["hero__text-block--headline"],
+    }),
+    description: this.createPara({
+      textContent:
+        "Step into Howl's Moving Kitchen and savor dishes crafted with heart and a touch of enchanment",
+      classNames: ["hero__text-block--description"],
+    }),
+    textBlockBtn: this.createButton({
+      textContent: "Explore the Menu",
+      classNames: ["text-block__btn", "call-to-action"],
+    }),
+    graphic: this.createDiv({ classNames: ["hero__graphic"] }),
+    graphicImg: this.createImg({
+      src: heroGraphic,
+      alt: "An image of califer cooking breakfast while eating egg shells",
+      classNames: ["hero__graphic-img"],
+    }),
   };
 
   #renderTextBlock(textBlock) {
@@ -209,44 +225,51 @@ export class HeroHandler extends DOMHandler {
 
 export class ServicesHandler extends DOMHandler {
   #DOMElements = {
-    services: this.createDiv("our-services"),
-    container: this.createDiv("our-services__container"),
-    header: this.createDiv("our-services__header"),
-    headline: this.createHeading(
-      "h1",
-      "The Magic of Exceptional Dining",
-      "our-services__headline",
-      "section-headline"
-    ),
-    description: this.createPara(
-      "Experience cuisine crafted with heart and enchantment, designed to delight every palate.",
-      "our-services__description",
-      "section-description"
-    ),
+    services: this.createDiv({ classNames: ["our-services"] }),
+    container: this.createDiv({ classNames: ["our-services__container"] }),
+    header: this.createDiv({ classNames: ["our-services__header"] }),
+    headline: this.createHeading({
+      headingType: "h1",
+      textContent: "The Magic of Exceptional Dining",
+      classNames: ["our-services__headline", "section-headline"],
+    }),
+    description: this.createPara({
+      textContent:
+        "Experience cuisine crafted with heart and enchantment, designed to delight every palate.",
+      classNames: ["our-services__description", "section-description"],
+    }),
 
-    cardContainer: this.createDiv("our-services__card-container"),
+    cardContainer: this.createDiv({
+      classNames: ["our-services__card-container"],
+    }),
     cards: [
-      this.#createCard(
-        cardImg1,
-        "Wholesome Feasts",
-        "Indulge in hearty, wholesome meals made with the freshest ingredients and a dash of magic."
-      ),
-      this.#createCard(
-        cardImg2,
-        "Quick Bites with Charm",
-        " Savor quick, flavorful dishes perfect for those on the move, inspired by Calcifer’s fiery touch."
-      ),
-      this.#createCard(
-        cardImg3,
-        "Enchanting Brews",
-        "Sip on handcrafted teas and coffees, brewed to warm your soul and awaken your senses."
-      ),
+      this.#createCard({
+        src: cardImg1,
+        headlineText: "Wholesome Feasts",
+        descriptionText:
+          "Indulge in hearty, wholesome meals made with the freshest ingredients and a dash of magic.",
+      }),
+      this.#createCard({
+        src: cardImg2,
+        headlineText: "Quick Bites with Charm",
+        descriptionText:
+          "Savor quick, flavorful dishes perfect for those on the move, inspired by Calcifer’s fiery touch.",
+      }),
+      this.#createCard({
+        src: cardImg3,
+        headlineText: "Enchanting Brews",
+        descriptionText:
+          "Sip on handcrafted teas and coffees, brewed to warm your soul and awaken your senses.",
+      }),
     ],
   };
 
-  #createCard(ImgSrc, headlineText, descriptionText) {
+  #createCard({ src, headlineText, descriptionText } = {}) {
     const card = this.createDiv("our-services__card-item");
-    const img = this.createImg(ImgSrc, "our-services__card-item-img");
+    const img = this.createImg({
+      src: src,
+      classNames: ["our-services__card-item-img"],
+    });
     const caption = this.createDiv("our-services__card-item-caption");
     const title = this.createAnchor(
       "#",
@@ -289,65 +312,79 @@ export class ServicesHandler extends DOMHandler {
 
 export class PopularHandler extends DOMHandler {
   #DOMElements = {
-    popular: this.createDiv("most-popular"),
-    header: this.createDiv("most-popular__header"),
-    caption: this.createDiv("most-popular__caption"),
-    headline: this.createHeading(
-      "h1",
-      "Most Popular Dishes",
-      "most-popular__headline",
-      "section-headline"
-    ),
-    description: this.createPara(
-      "Discover the dishes our guests can’t stop raving about—crafted with love and a sprinkle of magic.",
-      "most-popular__description",
-      "section-description"
-    ),
-    menuBtn: this.createButton(
-      "Full Menu",
-      "most-popular__menu-btn",
-      "call-to-action"
-    ),
-    cardContainer: this.createDiv("most-popular__card-container"),
+    popular: this.createDiv({ classNames: ["most-popular"] }),
+    header: this.createDiv({ classNames: ["most-popular__header"] }),
+    caption: this.createDiv({ classNames: ["most-popular__caption"] }),
+    headline: this.createHeading({
+      headingType: "h1",
+      textContent: "Most Popular Dishes",
+      classNames: ["most-popular__headline", "section-headline"],
+    }),
+    description: this.createPara({
+      textContent:
+        "Discover the dishes our guests can’t stop raving about—crafted with love and a sprinkle of magic.",
+      classNames: ["most-popular__description", "section-description"],
+    }),
+    menuBtn: this.createButton({
+      textContent: "Full Menu",
+      classNames: ["most-popular__menu-btn", "call-to-action"],
+    }),
+    cardContainer: this.createDiv({
+      classNames: ["most-popular__card-container"],
+    }),
 
     cards: [
-      this.#createCard(
-        popularCardImg1,
-        "A beautifully plated grilled steak with herb butter, served with roasted vegetables.",
-        "3,500",
-        "Calcifer’s Flame-Grilled Steak",
-        "Perfectly seared steak infused with smoky, magical flavors straight from Calcifer’s fire."
-      ),
-      this.#createCard(
-        popularCardImg2,
-        "A bowl of vibrant, aromatic ramen topped with soft-boiled eggs, fresh herbs, and a hint of spice.",
-        "2,400",
-        "Howl’s Enchanted Ramen",
-        "A rich, flavorful bowl of ramen that warms the soul and ignites your senses."
-      ),
-      this.#createCard(
-        popularCardImg3,
-        "A layered parfait with rich chocolate, coffee cream, and a sprinkle of cocoa powder, served in a tall glass.",
-        "1,500",
-        "Sophie’s Dreamy Parfait",
-        "A dreamy dessert blending smooth mocha flavors with indulgent chocolate layers."
-      ),
+      this.#createCard({
+        src: popularCardImg1,
+        alt: "A beautifully plated grilled steak with herb butter, served with roasted vegetables.",
+        price: "3,500",
+        titleText: "Calcifer’s Flame-Grilled Steak",
+        descriptionText:
+          "Perfectly seared steak infused with smoky, magical flavors straight from Calcifer’s fire.",
+      }),
+      this.#createCard({
+        src: popularCardImg2,
+        alt: "A bowl of vibrant, aromatic ramen topped with soft-boiled eggs, fresh herbs, and a hint of spice.",
+        price: "2,400",
+        titleText: "Howl’s Enchanted Ramen",
+        descriptionText:
+          "A rich, flavorful bowl of ramen that warms the soul and ignites your senses.",
+      }),
+      this.#createCard({
+        src: popularCardImg3,
+        alt: "A layered parfait with rich chocolate, coffee cream, and a sprinkle of cocoa powder, served in a tall glass.",
+        price: "1,500",
+        titlteText: "Sophie’s Dreamy Parfait",
+        descriptionText:
+          "A dreamy dessert blending smooth mocha flavors with indulgent chocolate layers.",
+      }),
     ],
   };
 
-  #createCard(ImgSrc, ImgAlt, price, titleText, descriptionText) {
-    const card = this.createDiv("most-popular__card-item");
-    const graphic = this.createDiv("card-item__graphic");
-    const img = this.createImg(ImgSrc, ImgAlt, "card-item__img");
-    const priceTag = this.createDiv("card-item__price-tag");
+  #createCard({ src, alt, price, titleText, descriptionText }) {
+    const card = this.createDiv({ classNames: ["most-popular__card-item"] });
+    const graphic = this.createDiv({ classNames: ["card-item__graphic"] });
+    const img = this.createImg({
+      src,
+      alt,
+      classNames: ["card-item__img"],
+    });
+    const priceTag = this.createDiv({ classNames: ["card-item__price-tag"] });
     priceTag.textContent = `&#165;${price}`;
-    const details = this.createDiv("card-item__details");
-    const title = this.createAnchor("#", titleText, "card-item__title");
-    const description = this.createPara(
-      descriptionText,
-      "card-item__description"
-    );
-    const button = this.createButton("Order Now", "card-item__order-now-btn");
+
+    const details = this.createDiv({ classNames: ["card-item__details"] });
+    const title = this.createAnchor({
+      textContent: titleText,
+      classNames: ["card-item__title"],
+    });
+    const description = this.createPara({
+      textContent: descriptionText,
+      classNames: ["card-item__description"],
+    });
+    const button = this.createButton({
+      textContent: "Order Now",
+      classNames: ["card-item__order-now-btn"],
+    });
 
     card.append(graphic, priceTag, details);
     graphic.append(img);
@@ -380,29 +417,28 @@ export class PopularHandler extends DOMHandler {
 
 export class BookingHandler extends DOMHandler {
   #DOMElements = {
-    booking: this.createDiv("booking-area"),
-    container: this.createDiv("booking-area__container"),
-    graphic: this.createDiv("booking-area__graphic"),
-    bookingImg: this.createImg(
-      bookingImg1,
-      "An image from a scene of Spirited Away where yokai frogs are cooking in the kitchen",
-      "booking-area__img"
-    ),
-    content: this.createDiv("booking-area__content"),
-    header: this.createDiv("booking-area__header"),
-    headline: this.createHeading(
-      "h1",
-      "Book a Table",
-      "booking-area__headline",
-      "section-headline"
-    ),
-    description: this.createPara(
-      "Reserve your seat at Howl’s Moving Kitchen in just a few clicks. Experience magical dining, crafted just for you.",
-      "booking-area__description",
-      "section-description"
-    ),
+    booking: this.createDiv({ classNames: ["booking-area"] }),
+    container: this.createDiv({ classNames: ["booking-area__container"] }),
+    graphic: this.createDiv({ classNames: ["booking-area__graphic"] }),
+    bookingImg: this.createImg({
+      src: bookingImg1,
+      alt: "An image from a scene of Spirited Away where yokai frogs are cooking in the kitchen",
+      classNames: ["booking-area__img"],
+    }),
+    content: this.createDiv({ classNames: ["booking-area__content"] }),
+    header: this.createDiv({ classNames: ["booking-area__header"] }),
+    headline: this.createHeading({
+      headingType: "h1",
+      textContent: "Book a Table",
+      classNames: ["booking-area__headline", "section-headline"],
+    }),
+    description: this.createPara({
+      textContent:
+        "Reserve your seat at Howl’s Moving Kitchen in just a few clicks. Experience magical dining, crafted just for you.",
+      classNames: ["booking-area__description", "section-description"],
+    }),
 
-    form: this.createForm(null, null, null, "booking-area__form"),
+    form: this.createForm({ classNames: ["booking-area__form"] }),
     labels: [
       this.createLabel({
         forElem: "name",
@@ -467,7 +503,7 @@ export class BookingHandler extends DOMHandler {
   };
 
   #createFormGroup(input, label) {
-    const group = this.createDiv("booking-area__form-group");
+    const group = this.createDiv({ classNames: ["booking-area__form-group"] });
     group.append(label, input);
 
     return group;
