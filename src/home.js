@@ -6,6 +6,9 @@ import popularCardImg1 from "./assets/images/steak.jpeg";
 import popularCardImg2 from "./assets/images/ramen.jpeg";
 import popularCardImg3 from "./assets/images/parfait.jpeg";
 import bookingImg1 from "./assets/images/yokai-cooking.jpeg";
+import customerImg1 from "./assets/images/sophie.jpeg";
+import customerImg2 from "./assets/images/noface.jpeg";
+import customerImg3 from "./assets/images/totoro.jpeg";
 
 // Mimic Abstract Class
 class DOMHandler {
@@ -154,6 +157,37 @@ class DOMHandler {
     return input;
   }
 
+  createList({ listType, listItems = [], id = "", classNames = [] } = {}) {
+    this.#validateClassNames(classNames);
+
+    const validListTypes = ["ol", "ul"];
+    if (!validListTypes.includes(listType))
+      throw new Error(`Invalid list type: ${listType}`);
+
+    const list = document.createElement(listType);
+    list.append(...listItems);
+    list.id = id;
+    this.#addClassNames(list, classNames);
+
+    return list;
+  }
+
+  createListItems({ count, textContent = "", id = "", classNames = [] } = {}) {
+    this.#validateClassNames(classNames);
+
+    const listItems = [];
+    while (count > 0) {
+      const li = document.createElement("li");
+      li.textContent = textContent;
+      li.id = id;
+      this.#addClassNames(li, classNames);
+      listItems.push(li);
+      count--;
+    }
+
+    return listItems;
+  }
+
   #addClassNames(element, classNames) {
     classNames.forEach((className) => element.classList.add(className));
   }
@@ -265,21 +299,23 @@ export class ServicesHandler extends DOMHandler {
   };
 
   #createCard({ src, headlineText, descriptionText } = {}) {
-    const card = this.createDiv("our-services__card-item");
+    const card = this.createDiv({ classNames: ["our-services__card-item"] });
     const img = this.createImg({
-      src: src,
+      src,
       classNames: ["our-services__card-item-img"],
     });
-    const caption = this.createDiv("our-services__card-item-caption");
-    const title = this.createAnchor(
-      "#",
-      headlineText,
-      "our-services__card-item-title"
-    );
-    const description = this.createPara(
-      descriptionText,
-      "our-services__card-item-description"
-    );
+    const caption = this.createDiv({
+      classNames: ["our-services__card-item-caption"],
+    });
+    const title = this.createAnchor({
+      href: "#",
+      textContent: headlineText,
+      classNames: ["our-services__card-item-title"],
+    });
+    const description = this.createPara({
+      textContent: descriptionText,
+      classNames: ["our-services__card-item-description"],
+    });
 
     caption.append(title, description);
     card.append(img, caption);
@@ -552,6 +588,89 @@ export class BookingHandler extends DOMHandler {
   }
 }
 
-class CustomerHandler extends DOMHandler {}
+export class CustomerHandler extends DOMHandler {
+  #DOMElements = {
+    customer: this.createDiv({ classNames: ["customer"] }),
+    header: this.createDiv({ classNames: ["customer__header"] }),
+    headline: this.createHeading({
+      headingType: "h1",
+      textContent: "What Our Guests Are Saying",
+      classNames: ["customer_headline", "section-headline"],
+    }),
+    description: this.createPara({
+      textContent:
+        "Real stories from our enchanted diners—see why they call it a magical culinary journey!",
+      classNames: ["customer__description", "section-description"],
+    }),
+    container: this.createDiv({ classNames: ["customer__card-container"] }),
+    cards: [
+      this.#createCard({
+        src: customerImg1,
+        captionText: `"The atmosphere is simply spellbinding! From the magical flavors
+              to the cozy ambiance, everything was perfect. The ramen warmed my
+              heart like a hug from Howl!"`,
+        customerName: "Sophie Hatter",
+      }),
+      this.#createCard({
+        src: customerImg2,
+        captionText: `"The dining experience here is beyond words. The staff welcomed me
+              warmly, and the steak melted in my mouth. I left feeling lighter,
+              happier, and full!"`,
+        customerName: "No Face",
+      }),
+      this.#createCard({
+        src: customerImg3,
+        captionText:
+          '"This place feels like home. The chocolate parfait was the highlight—it was like tasting pure happiness. My friends and I will definitely be back!"',
+        customerName: "Totoro",
+      }),
+    ],
+  };
+
+  #createCard({ src, captionText, customerName } = {}) {
+    const card = this.createDiv({ classNames: ["customer__card-item"] });
+
+    const graphic = this.createDiv({ classNames: ["card-item__graphic"] });
+    const img = this.createImg({ src, classNames: ["card-item__img"] });
+
+    graphic.append(img);
+
+    const caption = this.createPara({
+      textContent: captionText,
+      classNames: ["card-item__caption"],
+    });
+
+    const rating = this.createDiv({ classNames: ["card-item__rating"] });
+    const stars = this.createListItems({ count: 5, classNames: ["star"] });
+    const ratingList = this.createList({
+      listType: "ul",
+      listItems: stars,
+      classNames: ["rating__list"],
+    });
+    const customer = this.createPara({
+      textContent: `- ${customerName}`,
+      classNames: ["rating__customer"],
+    });
+
+    rating.append(ratingList, customer);
+
+    card.append(graphic, caption, rating);
+
+    return card;
+  }
+
+  render() {
+    const { customer, header, container } = this.#DOMElements;
+    customer.append(header, container);
+
+    const { headline, description } = this.#DOMElements;
+    header.append(headline, description);
+
+    const { cards } = this.#DOMElements;
+    container.append(...cards);
+
+    return customer;
+  }
+}
 
 class HomePage extends DOMHandler {}
