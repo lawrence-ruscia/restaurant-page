@@ -85,12 +85,6 @@ button {
   --font-weight-black: 900;
 }
 
-/* Content */
-#content {
-  display: grid;
-  grid-template-rows: 100vh 1fr;
-}
-
 /* Header */
 #header {
   position: sticky;
@@ -222,6 +216,8 @@ button {
 /*  Hero */
 .hero {
   background-color: var(--color-secondary);
+
+  height: 100vh;
 
   display: flex;
   justify-content: space-between;

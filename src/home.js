@@ -208,7 +208,7 @@ class DOMHandler {
   }
 }
 
-export class HeroHandler extends DOMHandler {
+class HeroHandler extends DOMHandler {
   #DOMElements = {
     hero: this.createDiv({ classNames: ["hero"] }),
     textBlock: this.createDiv({ classNames: ["hero__text-block"] }),
@@ -257,7 +257,7 @@ export class HeroHandler extends DOMHandler {
   }
 }
 
-export class ServicesHandler extends DOMHandler {
+class ServicesHandler extends DOMHandler {
   #DOMElements = {
     services: this.createDiv({ classNames: ["our-services"] }),
     container: this.createDiv({ classNames: ["our-services__container"] }),
@@ -346,7 +346,7 @@ export class ServicesHandler extends DOMHandler {
   }
 }
 
-export class PopularHandler extends DOMHandler {
+class PopularHandler extends DOMHandler {
   #DOMElements = {
     popular: this.createDiv({ classNames: ["most-popular"] }),
     header: this.createDiv({ classNames: ["most-popular__header"] }),
@@ -406,7 +406,7 @@ export class PopularHandler extends DOMHandler {
       classNames: ["card-item__img"],
     });
     const priceTag = this.createDiv({ classNames: ["card-item__price-tag"] });
-    priceTag.textContent = `&#165;${price}`;
+    priceTag.innerHTML = `&#165;${price}`;
 
     const details = this.createDiv({ classNames: ["card-item__details"] });
     const title = this.createAnchor({
@@ -451,7 +451,7 @@ export class PopularHandler extends DOMHandler {
   }
 }
 
-export class BookingHandler extends DOMHandler {
+class BookingHandler extends DOMHandler {
   #DOMElements = {
     booking: this.createDiv({ classNames: ["booking-area"] }),
     container: this.createDiv({ classNames: ["booking-area__container"] }),
@@ -588,7 +588,7 @@ export class BookingHandler extends DOMHandler {
   }
 }
 
-export class CustomerHandler extends DOMHandler {
+class CustomerHandler extends DOMHandler {
   #DOMElements = {
     customer: this.createDiv({ classNames: ["customer"] }),
     header: this.createDiv({ classNames: ["customer__header"] }),
@@ -673,4 +673,19 @@ export class CustomerHandler extends DOMHandler {
   }
 }
 
-class HomePage extends DOMHandler {}
+export class HomePage extends DOMHandler {
+  #PageSections = {
+    hero: new HeroHandler().render(),
+    services: new ServicesHandler().render(),
+    popular: new PopularHandler().render(),
+    booking: new BookingHandler().render(),
+    customer: new CustomerHandler().render(),
+  };
+
+  render() {
+    const home = this.createDiv({ id: "home" });
+    home.append(...Object.values(this.#PageSections));
+
+    return home;
+  }
+}
