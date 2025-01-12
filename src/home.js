@@ -5,6 +5,7 @@ import cardImg3 from "./assets/images/services3.svg";
 import popularCardImg1 from "./assets/images/steak.jpeg";
 import popularCardImg2 from "./assets/images/ramen.jpeg";
 import popularCardImg3 from "./assets/images/parfait.jpeg";
+import bookingImg1 from "./assets/images/yokai-cooking.jpeg";
 
 // Mimic Abstract Class
 class DOMHandler {
@@ -27,6 +28,7 @@ class DOMHandler {
 
     return div;
   }
+  // TODO: Modify all default params, Use (Objects parameter) instead
 
   createHeading(headingType, textContent = "", ...classNames) {
     this.#validateClassNames(classNames);
@@ -86,6 +88,56 @@ class DOMHandler {
     return a;
   }
 
+  createForm(action = "", method = "", id = "", ...classNames) {
+    this.#validateClassNames(classNames);
+
+    const form = document.createElement("form");
+    form.action = action;
+    form.method = method;
+    form.id = id;
+    this.#addClassNames(form, classNames);
+
+    return form;
+  }
+
+  createLabel({ forElem, id = "", textContent = "", classNames = [] } = {}) {
+    this.#validateClassNames(classNames);
+
+    const label = document.createElement("label");
+    label.for = forElem;
+    label.id = id;
+    label.textContent = textContent;
+    this.#addClassNames(label, classNames);
+
+    return label;
+  }
+
+  createInput({
+    type = "input",
+    id = "",
+    name,
+    placeholder = "",
+    required = "false",
+    min = "",
+    max = "",
+    classNames = [],
+  } = {}) {
+    this.#validateClassNames(classNames);
+
+    const input = document.createElement("input");
+    input.type = type;
+    input.id = id;
+    input.name = name;
+    input.placeholder = placeholder;
+    input.required = required;
+    input.min = min;
+    input.max = max;
+
+    this.#addClassNames(input, classNames);
+
+    return input;
+  }
+
   #addClassNames(element, classNames) {
     classNames.forEach((className) => element.classList.add(className));
   }
@@ -93,11 +145,9 @@ class DOMHandler {
   #validateClassNames(classNames) {
     if (
       !Array.isArray(classNames) ||
-      classNames.some((cls) => typeof cls !== "string" || cls.trim() === "")
+      classNames.some((cls) => typeof cls !== "string")
     ) {
-      throw new Error(
-        `Invalid class names: ${classNames}. Ensure class names are non-empty strings.`
-      );
+      throw new Error(`Invalid class names: ${classNames}.`);
     }
   }
 
@@ -328,7 +378,143 @@ export class PopularHandler extends DOMHandler {
   }
 }
 
-class BookingHandler extends DOMHandler {}
+export class BookingHandler extends DOMHandler {
+  #DOMElements = {
+    booking: this.createDiv("booking-area"),
+    container: this.createDiv("booking-area__container"),
+    graphic: this.createDiv("booking-area__graphic"),
+    bookingImg: this.createImg(
+      bookingImg1,
+      "An image from a scene of Spirited Away where yokai frogs are cooking in the kitchen",
+      "booking-area__img"
+    ),
+    content: this.createDiv("booking-area__content"),
+    header: this.createDiv("booking-area__header"),
+    headline: this.createHeading(
+      "h1",
+      "Book a Table",
+      "booking-area__headline",
+      "section-headline"
+    ),
+    description: this.createPara(
+      "Reserve your seat at Howl’s Moving Kitchen in just a few clicks. Experience magical dining, crafted just for you.",
+      "booking-area__description",
+      "section-description"
+    ),
+
+    form: this.createForm(null, null, null, "booking-area__form"),
+    labels: [
+      this.createLabel({
+        forElem: "name",
+        textContent: "Full Name",
+        classNames: ["booking-area__label"],
+      }),
+      this.createLabel({
+        forElem: "date",
+        textContent: "Reservation Date",
+        classNames: ["booking-area__label"],
+      }),
+      this.createLabel({
+        forElem: "time",
+        textContent: "Reservation Time",
+        classNames: ["booking-area__label"],
+      }),
+      this.createLabel({
+        forElem: "guests",
+        textContent: "Number of Guests",
+        classNames: ["booking-area__label"],
+      }),
+    ],
+
+    inputs: [
+      this.createInput({
+        id: "name",
+        name: "name",
+        placeholder: "Enter your name",
+        required: true,
+        classNames: ["booking-area__input"],
+      }),
+      this.createInput({
+        type: "date",
+        id: "date",
+        name: "date",
+        required: true,
+        classNames: ["booking-area__input", "booking-area__input--datetime"],
+      }),
+      this.createInput({
+        type: "time",
+        id: "time",
+        name: "time",
+        required: true,
+        classNames: ["booking-area__input", "booking-area__input--datetime"],
+      }),
+      this.createInput({
+        type: "number",
+        id: "guests",
+        name: "guests",
+        min: "1",
+        max: "10",
+        placeholder: "Guests",
+        required: true,
+        classNames: ["booking-area__input"],
+      }),
+    ],
+    button: this.createButton(
+      "Book Now",
+      "booking-area__form-button",
+      "call-to-action"
+    ),
+  };
+
+  #createFormGroup(input, label) {
+    const group = this.createDiv("booking-area__form-group");
+    group.append(label, input);
+
+    return group;
+  }
+
+  get formGroups() {
+    return [
+      this.#createFormGroup(
+        this.#DOMElements.inputs[0],
+        this.#DOMElements.labels[0]
+      ),
+      this.#createFormGroup(
+        this.#DOMElements.inputs[1],
+        this.#DOMElements.labels[1]
+      ),
+      this.#createFormGroup(
+        this.#DOMElements.inputs[2],
+        this.#DOMElements.labels[2]
+      ),
+      this.#createFormGroup(
+        this.#DOMElements.inputs[3],
+        this.#DOMElements.labels[3]
+      ),
+    ];
+  }
+
+  render() {
+    const { booking, container } = this.#DOMElements;
+    booking.append(container);
+
+    const { graphic, content } = this.#DOMElements;
+    container.append(graphic, content);
+
+    const { bookingImg } = this.#DOMElements;
+    graphic.append(bookingImg);
+
+    const { header, headline, description } = this.#DOMElements;
+    header.append(headline, description);
+    content.append(header);
+
+    const { form, button } = this.#DOMElements;
+    form.append(...this.formGroups, button);
+    content.append(form);
+
+    return booking;
+  }
+}
 
 class CustomerHandler extends DOMHandler {}
 
