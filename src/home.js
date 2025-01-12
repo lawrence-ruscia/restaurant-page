@@ -1,7 +1,7 @@
 import heroGraphic from "./assets/images/hero-preview.jpeg";
-import cardImg1 from "./assets/images/services1.svg";
-import cardImg2 from "./assets/images/services2.svg";
-import cardImg3 from "./assets/images/services3.svg";
+import servicesCardImg1 from "./assets/images/services1.svg";
+import servicesCardImg2 from "./assets/images/services2.svg";
+import servicesCardImg3 from "./assets/images/services3.svg";
 import popularCardImg1 from "./assets/images/steak.jpeg";
 import popularCardImg2 from "./assets/images/ramen.jpeg";
 import popularCardImg3 from "./assets/images/parfait.jpeg";
@@ -278,19 +278,19 @@ class ServicesHandler extends DOMHandler {
     }),
     cards: [
       this.#createCard({
-        src: cardImg1,
+        src: servicesCardImg1,
         headlineText: "Wholesome Feasts",
         descriptionText:
           "Indulge in hearty, wholesome meals made with the freshest ingredients and a dash of magic.",
       }),
       this.#createCard({
-        src: cardImg2,
+        src: servicesCardImg2,
         headlineText: "Quick Bites with Charm",
         descriptionText:
           "Savor quick, flavorful dishes perfect for those on the move, inspired by Calcifer’s fiery touch.",
       }),
       this.#createCard({
-        src: cardImg3,
+        src: servicesCardImg3,
         headlineText: "Enchanting Brews",
         descriptionText:
           "Sip on handcrafted teas and coffees, brewed to warm your soul and awaken your senses.",
