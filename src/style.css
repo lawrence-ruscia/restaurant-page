@@ -126,7 +126,7 @@ button {
 }
 
 .section-headline {
-  font-size: 4rem;
+  font-size: 2.5rem;
 
   margin-top: 0;
   margin-bottom: var(--spacing-xs);
@@ -168,6 +168,7 @@ button {
 
   width: 40%;
 }
+
 /* Menu (Card) Styles */
 .menu-card-container {
   display: grid;
@@ -376,6 +377,10 @@ button {
   align-items: end;
 }
 
+.hero__text-block--headline {
+  font-size: 4rem;
+}
+
 .text-block__btn {
   align-self: start;
   padding: var(--padding-btn-xl);
@@ -497,6 +502,10 @@ button {
   gap: 7rem;
 
   overflow: hidden;
+}
+
+.menu__text-block--headline {
+  font-size: 4rem;
 }
 
 .menu__container {
