@@ -11,7 +11,7 @@ import customerImg2 from "./assets/images/noface.jpeg";
 import customerImg3 from "./assets/images/totoro.jpeg";
 
 // Mimic Abstract Class
-class DOMHandler {
+export class DOMHandler {
   constructor() {
     if (new.target === DOMHandler) {
       throw new Error("Cannot instantiate an abstract class directly.");
@@ -346,7 +346,7 @@ class ServicesHandler extends DOMHandler {
   }
 }
 
-class PopularHandler extends DOMHandler {
+export class PopularHandler extends DOMHandler {
   #DOMElements = {
     popular: this.createDiv({ classNames: ["most-popular"] }),
     header: this.createDiv({ classNames: ["most-popular__header"] }),
@@ -370,35 +370,38 @@ class PopularHandler extends DOMHandler {
     }),
 
     cards: [
-      this.#createCard({
+      this.createCard({
         src: popularCardImg1,
         alt: "A beautifully plated grilled steak with herb butter, served with roasted vegetables.",
         price: "3,500",
         titleText: "Calcifer’s Flame-Grilled Steak",
         descriptionText:
           "Perfectly seared steak infused with smoky, magical flavors straight from Calcifer’s fire.",
+        classNames: ["most-popular__card-item"],
       }),
-      this.#createCard({
+      this.createCard({
         src: popularCardImg2,
         alt: "A bowl of vibrant, aromatic ramen topped with soft-boiled eggs, fresh herbs, and a hint of spice.",
         price: "2,400",
         titleText: "Howl’s Enchanted Ramen",
         descriptionText:
           "A rich, flavorful bowl of ramen that warms the soul and ignites your senses.",
+        classNames: ["most-popular__card-item"],
       }),
-      this.#createCard({
+      this.createCard({
         src: popularCardImg3,
         alt: "A layered parfait with rich chocolate, coffee cream, and a sprinkle of cocoa powder, served in a tall glass.",
         price: "1,500",
-        titlteText: "Sophie’s Dreamy Parfait",
+        titleText: "Sophie’s Dreamy Parfait",
         descriptionText:
           "A dreamy dessert blending smooth mocha flavors with indulgent chocolate layers.",
+        classNames: ["most-popular__card-item"],
       }),
     ],
   };
 
-  #createCard({ src, alt, price, titleText, descriptionText }) {
-    const card = this.createDiv({ classNames: ["most-popular__card-item"] });
+  createCard({ src, alt, price, titleText, descriptionText, classNames = [] }) {
+    const card = this.createDiv({ classNames });
     const graphic = this.createDiv({ classNames: ["card-item__graphic"] });
     const img = this.createImg({
       src,

@@ -396,6 +396,7 @@ button {
   padding-bottom: 120px;
   display: grid;
   place-items: center;
+  gap: var(--spacing-xl);
 }
 
 .most-popular__header,

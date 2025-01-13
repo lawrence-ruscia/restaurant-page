@@ -2,12 +2,14 @@ import "./style.css";
 import "./normalize.css";
 
 import { HomePage } from "./home.js";
+import { MenuPage } from "./menu.js";
 
 class RenderHandler {
   #content = document.querySelector("#content");
 
   #PageSections = {
     home: new HomePage().render(),
+    menu: new MenuPage().render(),
   };
 
   // TEMP: Temporary remove homepage while creating other apges
@@ -16,6 +18,7 @@ class RenderHandler {
     // this.#appendPage(home); // Initial page
 
     this.setupEventListener("home", this.#PageSections.home);
+    this.setupEventListener("menu", this.#PageSections.menu);
   }
 
   setupEventListener() {
