@@ -217,7 +217,7 @@ class HeroHandler extends DOMHandler {
     headline: this.createHeading({
       headingType: "h1",
       textContent: "Enchanting Flavors, Inspired by Magic",
-      classNames: ["hero__text-block--headline", "section-headline"],
+      classNames: ["hero__text-block--headline", "hero-headline"],
     }),
     description: this.createPara({
       textContent:
@@ -229,7 +229,7 @@ class HeroHandler extends DOMHandler {
       classNames: ["text-block__btn", "call-to-action"],
     }),
     graphic: this.createDiv({
-      classNames: ["hero__graphic", "section-graphic"],
+      classNames: ["hero__graphic", "hero-graphic"],
     }),
     graphicImg: this.createImg({
       src: heroGraphic,

@@ -18,7 +18,7 @@ export class MenuPage extends DOMHandler {
     heroHeadline: this.createHeading({
       headingType: "h1",
       textContent: "Our Magical Menu",
-      classNames: ["menu__text-block--headline", "section-headline"],
+      classNames: ["menu__text-block--headline", "hero-headline"],
     }),
     heroDescription: this.createPara({
       textContent:
@@ -26,7 +26,7 @@ export class MenuPage extends DOMHandler {
       classNames: ["menu__text-block-description", "section-description"],
     }),
     graphic: this.createDiv({
-      classNames: ["menu__graphic", "section-graphic"],
+      classNames: ["menu__graphic", "hero-graphic"],
     }),
     graphicImg: this.createImg({
       src: heroImg,
