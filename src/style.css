@@ -147,7 +147,6 @@ button {
 }
 
 /* Shared Menu Styles */
-
 .menu-header {
   display: flex;
   justify-content: center;
@@ -170,7 +169,6 @@ button {
   width: 40%;
 }
 /* Menu (Card) Styles */
-
 .menu-card-container {
   display: grid;
   grid-template-columns: repeat(3, minmax(450px, 1fr));
@@ -462,7 +460,7 @@ button {
   font-weight: var(--font-weight-bold);
 }
 
-/* Most Popular Dishes  & Menu */
+/* Most Popular & Menu */
 .most-popular {
   background-color: var(--color-text-secondary);
   color: var(--color-text-primary);
