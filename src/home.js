@@ -353,8 +353,12 @@ class ServicesHandler extends DOMHandler {
 export class PopularHandler extends DOMHandler {
   #DOMElements = {
     popular: this.createDiv({ classNames: ["most-popular"] }),
-    header: this.createDiv({ classNames: ["most-popular__header"] }),
-    caption: this.createDiv({ classNames: ["most-popular__caption"] }),
+    header: this.createDiv({
+      classNames: ["most-popular__header", "menu-header"],
+    }),
+    caption: this.createDiv({
+      classNames: ["most-popular__caption", "menu-caption"],
+    }),
     headline: this.createHeading({
       headingType: "h1",
       textContent: "Most Popular Dishes",
@@ -367,10 +371,10 @@ export class PopularHandler extends DOMHandler {
     }),
     menuBtn: this.createButton({
       textContent: "Full Menu",
-      classNames: ["most-popular__menu-btn", "call-to-action"],
+      classNames: ["most-popular__menu-btn", "menu-btn", "call-to-action"],
     }),
     cardContainer: this.createDiv({
-      classNames: ["most-popular__card-container"],
+      classNames: ["most-popular__card-container", "menu-card-container"],
     }),
 
     cards: [
@@ -381,7 +385,7 @@ export class PopularHandler extends DOMHandler {
         titleText: "Calcifer’s Flame-Grilled Steak",
         descriptionText:
           "Perfectly seared steak infused with smoky, magical flavors straight from Calcifer’s fire.",
-        classNames: ["most-popular__card-item"],
+        classNames: ["most-popular__card-item", "menu-card-item"],
       }),
       this.createCard({
         src: popularCardImg2,
@@ -390,7 +394,7 @@ export class PopularHandler extends DOMHandler {
         titleText: "Howl’s Enchanted Ramen",
         descriptionText:
           "A rich, flavorful bowl of ramen that warms the soul and ignites your senses.",
-        classNames: ["most-popular__card-item"],
+        classNames: ["most-popular__card-item", "menu-card-item"],
       }),
       this.createCard({
         src: popularCardImg3,
@@ -399,34 +403,34 @@ export class PopularHandler extends DOMHandler {
         titleText: "Sophie’s Dreamy Parfait",
         descriptionText:
           "A dreamy dessert blending smooth mocha flavors with indulgent chocolate layers.",
-        classNames: ["most-popular__card-item"],
+        classNames: ["most-popular__card-item", "menu-card-item"],
       }),
     ],
   };
 
   createCard({ src, alt, price, titleText, descriptionText, classNames = [] }) {
     const card = this.createDiv({ classNames });
-    const graphic = this.createDiv({ classNames: ["card-item__graphic"] });
+    const graphic = this.createDiv({ classNames: ["menu-card-graphic"] });
     const img = this.createImg({
       src,
       alt,
-      classNames: ["card-item__img"],
+      classNames: ["menu-card-img"],
     });
-    const priceTag = this.createDiv({ classNames: ["card-item__price-tag"] });
+    const priceTag = this.createDiv({ classNames: ["menu-card-price"] });
     priceTag.innerHTML = `&#165;${price}`;
 
-    const details = this.createDiv({ classNames: ["card-item__details"] });
+    const details = this.createDiv({ classNames: ["menu-card-details"] });
     const title = this.createAnchor({
       textContent: titleText,
-      classNames: ["card-item__title"],
+      classNames: ["menu-card-title"],
     });
     const description = this.createPara({
       textContent: descriptionText,
-      classNames: ["card-item__description"],
+      classNames: ["menu-card-description"],
     });
     const button = this.createButton({
       textContent: "Order Now",
-      classNames: ["card-item__order-now-btn"],
+      classNames: ["menu-card-order-btn"],
     });
 
     card.append(graphic, priceTag, details);

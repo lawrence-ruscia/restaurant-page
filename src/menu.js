@@ -35,8 +35,8 @@ export class MenuPage extends DOMHandler {
     }),
 
     container: this.createDiv({ classNames: ["menu__container"] }),
-    header: this.createDiv({ classNames: ["menu__header"] }),
-    caption: this.createDiv({ classNames: ["menu__caption"] }),
+    header: this.createDiv({ classNames: ["menu__header", "menu-header"] }),
+    caption: this.createDiv({ classNames: ["menu__caption", "menu-caption"] }),
     headline: this.createHeading({
       headingType: "h1",
       textContent: "Most Popular Dishes",
@@ -49,10 +49,12 @@ export class MenuPage extends DOMHandler {
     }),
     cta: this.createButton({
       textContent: "Full Menu",
-      classNames: ["menu__btn", "call-to-action"],
+      classNames: ["menu__btn", "menu-btn", "call-to-action"],
     }),
 
-    cardContainer: this.createDiv({ classNames: ["menu__card-container"] }),
+    cardContainer: this.createDiv({
+      classNames: ["menu__card-container", "menu-card-container"],
+    }),
     cards: [
       this.#popularHandler.createCard({
         src: cardImg1,
@@ -61,7 +63,7 @@ export class MenuPage extends DOMHandler {
         titleText: "Calcifer’s Flame-Grilled Steak",
         descriptionText:
           "Perfectly seared steak infused with smoky, magical flavors straight from Calcifer’s fire.",
-        classNames: ["menu__card-item"],
+        classNames: ["menu__card-item", "menu-card-item"],
       }),
       this.#popularHandler.createCard({
         src: cardImg2,
@@ -70,7 +72,7 @@ export class MenuPage extends DOMHandler {
         titleText: "Howl’s Enchanted Ramen",
         descriptionText:
           "A rich, flavorful bowl of ramen that warms the soul and ignites your senses.",
-        classNames: ["menu__card-item"],
+        classNames: ["menu__card-item", "menu-card-item"],
       }),
       this.#popularHandler.createCard({
         src: cardImg3,
@@ -79,7 +81,7 @@ export class MenuPage extends DOMHandler {
         titleText: "Sophie’s Dreamy Parfait",
         descriptionText:
           "A dreamy dessert blending smooth mocha flavors with indulgent chocolate layers.",
-        classNames: ["menu__card-item"],
+        classNames: ["menu__card-item", "menu-card-item"],
       }),
 
       this.#popularHandler.createCard({
@@ -89,7 +91,7 @@ export class MenuPage extends DOMHandler {
         titleText: "Katsu-Curry Supreme",
         descriptionText:
           "Crispy pork cutlet with rich Japanese curry, served with rice and pickled vegetables.",
-        classNames: ["menu__card-item"],
+        classNames: ["menu__card-item", "menu-card-item"],
       }),
       this.#popularHandler.createCard({
         src: cardImg5,
@@ -98,7 +100,7 @@ export class MenuPage extends DOMHandler {
         titleText: "Fluffy Cloud Pancakes",
         descriptionText:
           "Airy pancakes topped with whipped cream, berries, and maple syrup.",
-        classNames: ["menu__card-item"],
+        classNames: ["menu__card-item", "menu-card-item"],
       }),
       this.#popularHandler.createCard({
         src: cardImg6,
@@ -107,7 +109,7 @@ export class MenuPage extends DOMHandler {
         titleText: "Enchanted Omurice",
         descriptionText:
           "A fluffy omelet over fried rice, topped with tomato demi-glace and cream.",
-        classNames: ["menu__card-item"],
+        classNames: ["menu__card-item", "menu-card-item"],
       }),
     ],
   };
