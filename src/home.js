@@ -414,7 +414,7 @@ export class PopularHandler extends DOMHandler {
     const img = this.createImg({
       src,
       alt,
-      classNames: ["menu-card-img"],
+      classNames: ["card-img"],
     });
     const priceTag = this.createDiv({ classNames: ["menu-card-price"] });
     priceTag.innerHTML = `&#165;${price}`;
@@ -639,19 +639,19 @@ class CustomerHandler extends DOMHandler {
   };
 
   #createCard({ src, captionText, customerName } = {}) {
-    const card = this.createDiv({ classNames: ["customer__card-item"] });
+    const card = this.createDiv({ classNames: ["customer__card"] });
 
-    const graphic = this.createDiv({ classNames: ["card-item__graphic"] });
-    const img = this.createImg({ src, classNames: ["card-item__img"] });
+    const graphic = this.createDiv({ classNames: ["customer-card__graphic"] });
+    const img = this.createImg({ src, classNames: ["card-img"] });
 
     graphic.append(img);
 
     const caption = this.createPara({
       textContent: captionText,
-      classNames: ["card-item__caption"],
+      classNames: ["customer-card__caption"],
     });
 
-    const rating = this.createDiv({ classNames: ["card-item__rating"] });
+    const rating = this.createDiv({ classNames: ["customer-card__rating"] });
     const stars = this.createListItems({ count: 5, classNames: ["star"] });
     const ratingList = this.createList({
       listType: "ul",
