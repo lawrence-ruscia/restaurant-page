@@ -10,9 +10,10 @@ class RenderHandler {
     home: new HomePage().render(),
   };
 
+  // TEMP: Temporary remove homepage while creating other apges
   constructor() {
-    const home = this.#PageSections.home;
-    this.#appendPage(home); // Initial page
+    // const home = this.#PageSections.home;
+    // this.#appendPage(home); // Initial page
 
     this.setupEventListener("home", this.#PageSections.home);
   }

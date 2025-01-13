@@ -227,16 +227,20 @@ button {
   overflow: hidden;
 }
 
-.hero__text-block {
+.hero__text-block,
+.menu__text-block {
   background-color: var(--color-secondarys);
 
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: end;
 
   width: 50%;
   padding-left: 15rem;
+}
+
+.hero__text-block {
+  align-items: end;
 }
 
 .text-block__btn {
@@ -247,12 +251,14 @@ button {
   border-radius: 35px;
 }
 
-.hero__text-block--headline {
+.hero__text-block--headline,
+.menu__text-block--headline {
   font-size: 4rem;
   margin: 0;
 }
 
-.hero__text-block--description {
+.hero__text-block--description,
+.menu__text-block-description {
   font-size: var(--font-size-lg);
 }
 
@@ -260,8 +266,14 @@ button {
   width: 50%;
 }
 
-.hero__graphic-img {
+.menu__graphic {
+  width: 50%;
+}
+
+.hero__graphic-img,
+.menu__graphic-img {
   width: 100%;
+  object-fit: contain;
 }
 
 /* Our Services */
@@ -340,7 +352,7 @@ button {
   font-weight: var(--font-weight-bold);
 }
 
-/* Most Popular Dishes */
+/* Most Popular Dishes  & Menu */
 .most-popular {
   background-color: var(--color-text-secondary);
   color: var(--color-text-primary);
@@ -354,21 +366,56 @@ button {
   padding-bottom: 120px;
 }
 
-.most-popular__header {
+.menu {
+  color: var(--color-text-primary);
+
+  display: grid;
+  place-items: center;
+  grid-template-rows: auto 1fr;
+  gap: var(--spacing-xl);
+
+  padding-top: 120px;
+  padding-bottom: 120px;
+}
+
+.menu__hero {
+  background-color: var(--color-secondary);
+
+  height: 50vh;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7rem;
+
+  overflow: hidden;
+}
+
+.menu__container {
+  padding-top: 120px;
+  padding-bottom: 120px;
+  display: grid;
+  place-items: center;
+}
+
+.most-popular__header,
+.menu__header {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 34rem;
 }
 
-.most-popular__menu-btn {
+.most-popular__menu-btn,
+.menu__btn {
   align-self: start;
 
   border-radius: 40px;
   padding: 25px 60px;
 }
 
-.most-popular__caption {
+.most-popular__caption,
+.menu__caption {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -376,17 +423,18 @@ button {
   width: 40%;
 }
 
-.most-popular__card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.most-popular__card-container,
+.menu__card-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(450px, 1fr));
+  place-items: center;
   gap: var(--spacing-md);
-  flex-wrap: wrap;
 
-  width: 100%;
+  max-width: 75%;
 }
 
-.most-popular__card-item {
+.most-popular__card-item,
+.menu__card-item {
   position: relative;
   background-color: var(--color-text-primary);
   color: #0c0c0c;
@@ -397,24 +445,33 @@ button {
   flex-direction: column;
 
   max-width: 450px;
+  height: 500px;
 
   border-radius: var(--radius-small);
   transition: all 0.3s ease-out;
 }
 
-.most-popular__card-item:hover {
+.menu__card-item {
+  border: 1px solid #e6dad8;
+}
+
+.most-popular__card-item:hover,
+.menu__card-item:hover {
   cursor: pointer;
 }
 
-.most-popular__card-item:hover .card-item__img {
+.most-popular__card-item:hover .card-item__img,
+.menu__card-item:hover .card-item__img {
   transform: scale(0.95);
 }
 
-.most-popular__card-item:hover .card-item__order-now-btn {
+.most-popular__card-item:hover .card-item__order-now-btn,
+.menu__card-item:hover .card-item__order-now-btn {
   color: var(--color-primary);
 }
 
-.most-popular__card-item > .card-item__graphic {
+.most-popular__card-item > .card-item__graphic,
+.menu__card-item > .card-item__graphic {
   width: 50%;
   padding-top: 40px;
 }
