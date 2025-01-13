@@ -12,7 +12,9 @@ export class MenuPage extends DOMHandler {
   #DOMElements = {
     menu: this.createDiv({ id: "menu" }),
     hero: this.createDiv({ classNames: ["menu__hero"] }),
-    textBlock: this.createDiv({ classNames: ["menu__text-block"] }),
+    textBlock: this.createDiv({
+      classNames: ["menu__text-block", "text-block"],
+    }),
     heroHeadline: this.createHeading({
       headingType: "h1",
       textContent: "Our Magical Menu",
@@ -23,11 +25,13 @@ export class MenuPage extends DOMHandler {
         "Embark on a culinary journey where every dish tells a story. From hearty meals to delightful desserts, experience the enchantment of our chef's creations.",
       classNames: ["menu__text-block-description", "section-description"],
     }),
-    graphic: this.createDiv({ classNames: ["menu__graphic"] }),
+    graphic: this.createDiv({
+      classNames: ["menu__graphic", "section-graphic"],
+    }),
     graphicImg: this.createImg({
       src: heroImg,
       alt: "An image of califer cooking breakfast while eating egg shells",
-      classNames: ["menu__graphic-img"],
+      classNames: ["menu__graphic-img", "graphic-img"],
     }),
 
     container: this.createDiv({ classNames: ["menu__container"] }),

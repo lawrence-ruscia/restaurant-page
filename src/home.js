@@ -211,26 +211,30 @@ export class DOMHandler {
 class HeroHandler extends DOMHandler {
   #DOMElements = {
     hero: this.createDiv({ classNames: ["hero"] }),
-    textBlock: this.createDiv({ classNames: ["hero__text-block"] }),
+    textBlock: this.createDiv({
+      classNames: ["hero__text-block", "text-block"],
+    }),
     headline: this.createHeading({
       headingType: "h1",
       textContent: "Enchanting Flavors, Inspired by Magic",
-      classNames: ["hero__text-block--headline"],
+      classNames: ["hero__text-block--headline", "section-headline"],
     }),
     description: this.createPara({
       textContent:
         "Step into Howl's Moving Kitchen and savor dishes crafted with heart and a touch of enchanment",
-      classNames: ["hero__text-block--description"],
+      classNames: ["hero__text-block--description", "section-description"],
     }),
     textBlockBtn: this.createButton({
       textContent: "Explore the Menu",
       classNames: ["text-block__btn", "call-to-action"],
     }),
-    graphic: this.createDiv({ classNames: ["hero__graphic"] }),
+    graphic: this.createDiv({
+      classNames: ["hero__graphic", "section-graphic"],
+    }),
     graphicImg: this.createImg({
       src: heroGraphic,
       alt: "An image of califer cooking breakfast while eating egg shells",
-      classNames: ["hero__graphic-img"],
+      classNames: ["hero__graphic-img", "graphic-img"],
     }),
   };
 
