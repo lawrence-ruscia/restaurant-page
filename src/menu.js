@@ -18,12 +18,12 @@ export class MenuPage extends DOMHandler {
     heroHeadline: this.createHeading({
       headingType: "h1",
       textContent: "Our Magical Menu",
-      classNames: ["menu__text-block--headline", "hero-headline"],
+      classNames: ["section-headline", "hero-headline"],
     }),
     heroDescription: this.createPara({
       textContent:
         "Embark on a culinary journey where every dish tells a story. From hearty meals to delightful desserts, experience the enchantment of our chef's creations.",
-      classNames: ["menu__text-block-description", "section-description"],
+      classNames: ["section-description"],
     }),
     graphic: this.createDiv({
       classNames: ["menu__graphic", "hero-graphic"],

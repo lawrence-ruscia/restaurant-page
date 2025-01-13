@@ -217,12 +217,12 @@ class HeroHandler extends DOMHandler {
     headline: this.createHeading({
       headingType: "h1",
       textContent: "Enchanting Flavors, Inspired by Magic",
-      classNames: ["hero__text-block--headline", "hero-headline"],
+      classNames: ["section-headline", "hero-headline"],
     }),
     description: this.createPara({
       textContent:
         "Step into Howl's Moving Kitchen and savor dishes crafted with heart and a touch of enchanment",
-      classNames: ["hero__text-block--description", "section-description"],
+      classNames: ["section-description"],
     }),
     textBlockBtn: this.createButton({
       textContent: "Explore the Menu",
