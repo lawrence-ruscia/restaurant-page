@@ -55,7 +55,127 @@
         </nav>
       </div>
     </header>
-    <div id="content"></div>
+    <div id="content">
+      <div id="contact">
+        <div class="contact__hero section-hero">
+          <div class="text-block">
+            <h1 class="hero-headline section-headline">Get in Touch with Us</h1>
+            <p class="section-description">
+              We’d love to hear from you! Whether you have questions, feedback,
+              or just want to say hello, reach out and let’s connect.
+            </p>
+          </div>
+          <div class="hero-graphic">
+            <img
+              src="./assets/images/menu-hero.jpeg"
+              alt=""
+              class="graphic-img"
+            />
+          </div>
+        </div>
+        <div class="contact__container">
+          <div class="contact__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3261.2609027089957!2d137.0861939747359!3d35.17504925761571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x600367450203d0b3%3A0x36164b7a69c5128b!2sGhibli%20Park!5e0!3m2!1sen!2sph!4v1736846154893!5m2!1sen!2sph"
+              width="600"
+              height="450"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+
+          <div class="contact__details">
+            <div class="contact__form-container">
+              <div class="contact__form-header">
+                <h1 class="form-header">Send Us a Message</h1>
+              </div>
+              <form class="contact__form">
+                <div class="contact__form-group">
+                  <label for="contact__name" class="contact__label">Name</label>
+                  <input
+                    id="contact__name"
+                    class="contact__input"
+                    name="name"
+                    placeholder="Enter name"
+                    required
+                  />
+                </div>
+                <div class="contact__form-group">
+                  <label for="contact__email" class="contact__label"
+                    >Email</label
+                  >
+                  <input
+                    id="contact__email"
+                    class="contact__input"
+                    name="email"
+                    placeholder="Enter email"
+                    required
+                  />
+                </div>
+                <div class="contact__form-group">
+                  <label for="contact__subject" class="contact__label"
+                    >Subject</label
+                  >
+                  <input
+                    id="contact__subject"
+                    class="contact__input"
+                    name="subject"
+                    placeholder="Enter subject"
+                    required
+                  />
+                </div>
+                <div class="contact__form-group">
+                  <label for="contact__message" class="contact__label"
+                    >Message</label
+                  >
+                  <textarea
+                    id="contact__message"
+                    class="contact__input"
+                    name="message"
+                    placeholder="Enter message"
+                    required
+                  ></textarea>
+                </div>
+
+                <button class="contact__form-btn">SEND MESSAGE</button>
+              </form>
+            </div>
+
+            <div class="contact__info">
+              <ul class="contact__list">
+                <li class="contact__item">
+                  <img
+                    src="./assets/icons/location-icon.svg"
+                    alt=""
+                    class="address__icon"
+                  />
+                  Japan, 〒480-1342 Aichi, Nagakute, Ibaragabasama,
+                  乙１５３３−１
+                </li>
+                <li class="contact__item">
+                  <img
+                    src="./assets/icons/phone-primary-icon.svg"
+                    alt=""
+                    class="telephone__icon"
+                  />
+                  +2 392 3929 210
+                </li>
+                <li class="contact__item">
+                  <img
+                    src="./assets/icons/mail-icon.svg"
+                    alt=""
+                    class="mail__icon"
+                  />
+                  @howlsmovingkitchen
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <footer id="footer">
       <div class="footer__row">
         <div class="footer__col footer__col--description">
@@ -127,7 +247,7 @@
                 alt=""
                 class="address__icon"
               />
-              203 Somewhere St. Ghibli View, Japan
+              Japan, 〒480-1342 Aichi, Nagakute, Ibaragabasama, 乙１５３３−１
             </li>
             <li class="contact-us__item contact-us__item--telephone">
               <img

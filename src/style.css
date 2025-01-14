@@ -68,6 +68,10 @@ button {
   --radius-x-large: 24px;
   --radius-round: 50%;
 
+  /* Border */
+
+  --border-default: 1px solid #e6dad8;
+
   /* Font Sizes (rem-based) */
   --font-size-xs: 0.75rem; /* 12px */
   --font-size-sm: 0.875rem; /* 14px */
@@ -453,7 +457,7 @@ button {
   max-width: 450px;
   padding: 47px 46px 36px 46px;
 
-  border: 1px solid #e6dad8;
+  border: var(--border-default);
   border-radius: var(--radius-small);
 
   transition: all 0.3s ease-out 0s;
@@ -513,7 +517,7 @@ button {
 }
 
 .menu__card-item {
-  border: 1px solid #e6dad8;
+  border: var(--border-default);
 }
 
 /* Booking Area */
@@ -588,7 +592,7 @@ button {
   border-radius: var(--radius-small);
 
   outline: none;
-  border: 1px solid #e6dad8;
+  border: var(--border-default);
 }
 
 .booking-area__input--datetime {
@@ -649,7 +653,7 @@ button {
   max-width: 450px;
   padding: 47px 46px 36px 46px;
 
-  border: 1px solid #e6dad8;
+  border: var(--border-default);
   border-radius: var(--radius-small);
 
   transition: all 0.3s ease-out 0s;
@@ -687,7 +691,122 @@ button {
   margin-right: var(--spacing-xxs);
 }
 
-/* About */
+/* Contact */
+#contact {
+  display: grid;
+  place-items: center;
+}
+.contact__container {
+  width: 70%;
+  padding-top: 120px;
+  padding-bottom: 120px;
+  display: grid;
+  gap: var(--spacing-xl);
+}
+.contact__map {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.contact__map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contact__details {
+  display: flex;
+  justify-content: center;
+}
+
+.contact__form-container {
+  width: 60%;
+  padding-right: 5rem;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+
+  margin-top: var(--spacing-xl);
+
+  width: 100%;
+}
+
+.contact__form-header > h1 {
+  margin: 0;
+}
+
+.contact__form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+
+  width: 100%;
+}
+
+.contact__input {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-small);
+
+  outline: none;
+  border: var(--border-default);
+}
+
+.contact__form-group textarea {
+  resize: none;
+  height: 180px;
+}
+
+.contact__form-btn {
+  align-self: start;
+
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+
+  background-color: var(--color-text-primary);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+
+  transition: all 0.3s ease;
+}
+
+.contact__form-btn:hover {
+  background-color: var(--color-primary);
+
+  color: var(--color-text-primary);
+}
+
+.contact__info {
+  width: 40%;
+  padding-top: 6rem;
+  padding-left: 5rem;
+}
+.contact__list {
+  padding-left: 0;
+}
+
+.contact__item {
+  list-style: none;
+  margin-bottom: 42px;
+
+  display: flex;
+  align-items: start;
+  align-items: center;
+  gap: var(--spacing-sm);
+
+  font-weight: var(--font-weight-bold);
+}
+
+.contact__item > img {
+  width: 36px;
+}
 
 /* Footer */
 #footer {
