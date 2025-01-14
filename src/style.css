@@ -166,6 +166,7 @@ button {
   background-color: var(--color-secondary);
 
   height: 50vh;
+  width: 100%;
 
   display: flex;
   justify-content: space-between;
@@ -659,7 +660,7 @@ button {
   transition: all 0.3s ease-out 0s;
 }
 
-.customer__card-item:hover {
+.customer__card:hover {
   border: 1px solid transparent;
   box-shadow: 0 25px 38px rgba(254, 95, 65, 0.1);
 }
@@ -734,13 +735,7 @@ button {
   align-items: center;
   gap: var(--spacing-md);
 
-  margin-top: var(--spacing-xl);
-
   width: 100%;
-}
-
-.contact__form-header > h1 {
-  margin: 0;
 }
 
 .contact__form-group {
@@ -767,7 +762,7 @@ button {
 .contact__form-btn {
   align-self: start;
 
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   padding: 1.5rem 2rem;
 
   background-color: var(--color-text-primary);
@@ -785,7 +780,7 @@ button {
 
 .contact__info {
   width: 40%;
-  padding-top: 6rem;
+  padding-top: 5.6rem;
   padding-left: 5rem;
 }
 .contact__list {
