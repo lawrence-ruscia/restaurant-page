@@ -579,11 +579,10 @@ export class BookingHandler extends DOMHandler {
         classNames: ["booking-area__input"],
       }),
     ],
-    button: this.createButton(
-      "Book Now",
-      "booking-area__form-button",
-      "call-to-action"
-    ),
+    button: this.createButton({
+      textContent: "Book Now",
+      classNames: ["booking-area__form-button", "call-to-action"],
+    }),
   };
 
   #createFormGroup(input, label) {
