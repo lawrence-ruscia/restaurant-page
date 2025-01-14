@@ -158,6 +158,19 @@ button {
   width: 50%;
 }
 
+.section-hero {
+  background-color: var(--color-secondary);
+
+  height: 50vh;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 7rem;
+
+  overflow: hidden;
+}
+
 /* Shared Menu Styles */
 .menu-header {
   display: flex;
@@ -491,19 +504,6 @@ button {
   padding-bottom: 120px;
 }
 
-.menu__hero {
-  background-color: var(--color-secondary);
-
-  height: 50vh;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 7rem;
-
-  overflow: hidden;
-}
-
 .menu__container {
   padding-top: 120px;
   padding-bottom: 120px;
@@ -522,7 +522,6 @@ button {
   place-items: center;
 
   padding-top: 120px;
-  padding-bottom: 120px;
 }
 
 .booking-area__container {
@@ -609,6 +608,8 @@ button {
   display: grid;
   place-items: center;
 
+  /* HACK: Make a better solution instead of randomly applying padding for specific sections */
+  padding-top: 120px;
   padding-bottom: 120px;
 }
 
@@ -685,6 +686,8 @@ button {
   font-size: 1.4rem;
   margin-right: var(--spacing-xxs);
 }
+
+/* About */
 
 /* Footer */
 #footer {

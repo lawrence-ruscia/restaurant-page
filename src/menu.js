@@ -11,7 +11,7 @@ export class MenuPage extends DOMHandler {
   #popularHandler = new PopularHandler();
   #DOMElements = {
     menu: this.createDiv({ id: "menu" }),
-    hero: this.createDiv({ classNames: ["menu__hero"] }),
+    hero: this.createDiv({ classNames: ["menu__hero", "section-hero"] }),
     textBlock: this.createDiv({
       classNames: ["menu__text-block", "text-block"],
     }),

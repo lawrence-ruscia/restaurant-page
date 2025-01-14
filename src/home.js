@@ -261,7 +261,7 @@ class HeroHandler extends DOMHandler {
   }
 }
 
-class ServicesHandler extends DOMHandler {
+export class ServicesHandler extends DOMHandler {
   #DOMElements = {
     services: this.createDiv({ classNames: ["our-services"] }),
     container: this.createDiv({ classNames: ["our-services__container"] }),
@@ -462,7 +462,7 @@ export class PopularHandler extends DOMHandler {
   }
 }
 
-class BookingHandler extends DOMHandler {
+export class BookingHandler extends DOMHandler {
   #DOMElements = {
     booking: this.createDiv({ classNames: ["booking-area"] }),
     container: this.createDiv({ classNames: ["booking-area__container"] }),

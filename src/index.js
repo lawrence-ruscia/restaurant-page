@@ -3,6 +3,7 @@ import "./normalize.css";
 
 import { HomePage } from "./home.js";
 import { MenuPage } from "./menu.js";
+import { AboutPage } from "./about.js";
 
 class RenderHandler {
   #content = document.querySelector("#content");
@@ -10,6 +11,7 @@ class RenderHandler {
   #PageSections = {
     home: new HomePage().render(),
     menu: new MenuPage().render(),
+    about: new AboutPage().render(),
   };
 
   // TEMP: Temporary remove homepage while creating other apges
@@ -19,8 +21,10 @@ class RenderHandler {
 
     this.setupEventListener("home", this.#PageSections.home);
     this.setupEventListener("menu", this.#PageSections.menu);
+    this.setupEventListener("about", this.#PageSections.about);
   }
 
+  // TODO: Add feat that resets scrolling position when rendering a new page
   setupEventListener() {
     const header = document.querySelector("#header");
 
