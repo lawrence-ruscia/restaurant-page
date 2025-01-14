@@ -4,6 +4,7 @@ import "./normalize.css";
 import { HomePage } from "./home.js";
 import { MenuPage } from "./menu.js";
 import { AboutPage } from "./about.js";
+import { ContactPage } from "./contact.js";
 
 class RenderHandler {
   #content = document.querySelector("#content");
@@ -12,16 +13,17 @@ class RenderHandler {
     home: new HomePage().render(),
     menu: new MenuPage().render(),
     about: new AboutPage().render(),
+    contact: new ContactPage().render(),
   };
 
-  // TEMP: Temporary remove homepage while creating other apges
   constructor() {
-    // const home = this.#PageSections.home;
-    // this.#appendPage(home); // Initial page
+    const home = this.#PageSections.home;
+    this.#appendPage(home); // Initialize homepage
 
     this.setupEventListener("home", this.#PageSections.home);
     this.setupEventListener("menu", this.#PageSections.menu);
     this.setupEventListener("about", this.#PageSections.about);
+    this.setupEventListener("contact", this.#PageSections.contact);
   }
 
   setupEventListener() {

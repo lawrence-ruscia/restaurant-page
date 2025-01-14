@@ -157,6 +157,30 @@ export class DOMHandler {
     return input;
   }
 
+  createTextArea({
+    id = "",
+    name,
+    placeholder = "",
+    required = "false",
+    min = "",
+    max = "",
+    classNames = [],
+  } = {}) {
+    this.#validateClassNames(classNames);
+
+    const textarea = document.createElement("textarea");
+    textarea.id = id;
+    textarea.name = name;
+    textarea.placeholder = placeholder;
+    textarea.required = required;
+    textarea.min = min;
+    textarea.max = max;
+
+    this.#addClassNames(textarea, classNames);
+
+    return textarea;
+  }
+
   createList({ listType, listItems = [], id = "", classNames = [] } = {}) {
     this.#validateClassNames(classNames);
 
@@ -170,6 +194,19 @@ export class DOMHandler {
     this.#addClassNames(list, classNames);
 
     return list;
+  }
+
+  createListItem({ src, textContent = "", id = "", classNames = [] } = {}) {
+    this.#validateClassNames(classNames);
+
+    const li = document.createElement("li");
+    const img = this.createImg({ src });
+    const text = this.createPara({ textContent });
+    li.append(img, text);
+    li.id = id;
+    this.#addClassNames(li, classNames);
+
+    return li;
   }
 
   createListItems({ count, textContent = "", id = "", classNames = [] } = {}) {

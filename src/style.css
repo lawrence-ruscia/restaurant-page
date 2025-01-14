@@ -739,6 +739,7 @@ button {
 }
 
 .contact__form-group {
+  font-size: 1.1rem;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xs);
@@ -801,6 +802,10 @@ button {
 
 .contact__item > img {
   width: 36px;
+}
+
+.contact__item > p {
+  margin: 0;
 }
 
 /* Footer */
