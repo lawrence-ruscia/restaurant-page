@@ -24,7 +24,6 @@ class RenderHandler {
     this.setupEventListener("about", this.#PageSections.about);
   }
 
-  // TODO: Add feat that resets scrolling position when rendering a new page
   setupEventListener() {
     const header = document.querySelector("#header");
 
@@ -38,6 +37,9 @@ class RenderHandler {
         if (page) {
           this.#clearPage();
           this.#appendPage(page);
+
+          // Reset scroll position
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
         }
       }
     });
