@@ -586,7 +586,6 @@ export class BookingHandler extends DOMHandler {
     ),
   };
 
-  // TODO: Forgot to add `.booking-area__date-time` form group to date-time inputs
   #createFormGroup(input, label) {
     const group = this.createDiv({ classNames: ["booking-area__form-group"] });
     group.append(label, input);
