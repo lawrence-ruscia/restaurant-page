@@ -184,11 +184,11 @@ export class ContactPage extends DOMHandler {
     const { formContainer, info } = this.#DOMElements;
     details.append(formContainer, info);
 
-    const { formHeader, formTitle, form } = this.#DOMElements;
+    const { formHeader, formTitle, form, formBtn } = this.#DOMElements;
     formHeader.append(formTitle);
     formContainer.append(formHeader, form);
 
-    form.append(...this.formGroups);
+    form.append(...this.formGroups, formBtn);
 
     const { list, listItems } = this.#DOMElements;
     list.append(...listItems);
