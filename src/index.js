@@ -20,10 +20,7 @@ class RenderHandler {
     const home = this.#PageSections.home;
     this.#appendPage(home); // Initialize homepage
 
-    this.setupEventListener("home", this.#PageSections.home);
-    this.setupEventListener("menu", this.#PageSections.menu);
-    this.setupEventListener("about", this.#PageSections.about);
-    this.setupEventListener("contact", this.#PageSections.contact);
+    this.setupEventListener();
   }
 
   setupEventListener() {
