@@ -24,19 +24,33 @@ This project is a tribute to the charm and wonder of _Howl's Moving Castle_, cap
 
 ## 🚀 How to Run
 
-In order to setup and work on this project on your own, you will need to:
+### **1. Clone this project**
 
-1. Clone this project:
-   `git clone https://github.com/pret3nti0u5/Restaurant-Page.git`
+`git clone git@github.com:lawrence-ruscia/restaurant-page.git`
 
-2. Once you have cloned this project, you can install the required dependencies by using:
-   `npm install`
+### **2. Development Mode**
 
-3. A live demo of the project can be started by using:
-   `npm start`
+Run the application in development mode with live reloading:
 
-4. Distribution files can be produced using:
-   `npm run build`
+```bash
+npm run dev
+```
+
+### **3. Build for Production**
+
+Create an optimized production build:
+
+```bash
+npm run build
+```
+
+### **4. Deploy to Github Pages**
+
+Deploy the production build to GitHub Pages:
+
+```bash
+npm run deploy
+```
 
 ## Live Demo
 
